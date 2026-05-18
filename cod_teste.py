@@ -9,7 +9,7 @@ def conectar():
 
     )
 
-def cadatrar_aluno():
+def cadastrar_aluno():
     conexão = conectar()
     cursor = conexão.cursor()
 
@@ -20,5 +20,13 @@ def cadatrar_aluno():
     if turma > 1 or turma < 6 and turma.isdigit():
         print("turma invalida")
 
-    elif nome == "" or idade == ""
-    else: 
+    elif nome == "" or idade == "" or turma == "":
+        print("preencha todos os campos")
+    elif not idade.isdigit() or int(idade) <= 0:
+        print("idade deve ser um número valido")
+    else:
+        cursor.execute("INSERT INTO alunos (nome, idade, turma) VALUES (%s, %s, %s)", (nome, idade, turma))
+        conexão.commit()
+        print("Aluno cadastrado")
+        cursor.close()
+        conexão.close()
