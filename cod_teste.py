@@ -30,3 +30,18 @@ def cadastrar_aluno():
         print("Aluno cadastrado")
         cursor.close()
         conexão.close()
+
+def listar_alunos():
+    conexao = conectar()
+    cursor = conexão.cursor()
+    cursor.execute("SELECT * FROM alunos")
+    alunos = cursor.fetchall()
+    for aluno in alunos:
+        print(f"ID: {aluno[0]}, Nome: {aluno[1]}, Idade: {aluno[2]}, Turma: {aluno[3]}")
+    cursor.close()
+    conexão.close()
+
+def editar_aluno():
+    conexão = conectar()
+
+
