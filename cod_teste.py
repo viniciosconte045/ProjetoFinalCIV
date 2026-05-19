@@ -26,9 +26,10 @@ def cadastrar_aluno():
     opcao_turma = input("Digite o numero da sua turma:").strip()
     if opcao_turma not in turma:
         print("Turma inválida")
+        return
     elif nome == "" or idade == "":
         print("preencha todos os campos")
-
+        return
     elif not idade.isdigit() or int(idade) <= 0:
         print("idade deve ser um número valido")
 
