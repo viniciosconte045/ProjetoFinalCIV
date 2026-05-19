@@ -6,7 +6,6 @@ def conectar():
         user="root",
         password="Senac2026",
         database="escola_db"
-
     )
 
 def cadastrar_aluno():
