@@ -124,7 +124,7 @@ def editar_aluno():
 
                 cursor.execute(
                 "UPDATE alunos SET nome = %s, idade = %s, turma = %s WHERE id_aluno = %s",
-                (novo_nome, nova_idade, turmas[nova_turma], id_aluno))
+                (novo_nome, int(nova_idade), turmas[nova_turma], id_aluno))
 
                 conexao.commit()
 
@@ -137,3 +137,35 @@ def editar_aluno():
     cursor.close()
 
     conexao.close()
+
+def excluir_aluno(): #ultima parte que eu venécios terei que fazer
+    conexao = conectar()
+
+    cursor = conexao.cursor()
+
+    id_aluno = input("digite o ID do aluno que você quer excluir:").strip()
+
+    if not id_aluno.isdigit():
+        print("ID deve ser um número válido")
+
+    else:
+        cursor.execute("SELECT * FROM alunos WHERE id_aluno = %s", (id_aluno,))
+
+        aluno = cursor.fetchone()
+
+        if aluno:
+
+            cursor.execute("DELETE FROM alunos WHERE id_aluno = %s", (id_aluno,))
+
+            conexao.commit()
+
+            print("Aluno excluído")
+
+        else:
+            print("Aluno não encontrado")
+
+    cursor.close()
+
+    conexao.close()
+
+
