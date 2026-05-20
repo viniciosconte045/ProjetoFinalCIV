@@ -77,6 +77,16 @@ def editar_aluno():
 
     cursor = conexao.cursor()
 
+    turmas = {
+
+    "1": "1° EM DS",
+    "2": "1° EM Multimídia",
+    "3": "1° EM Jogos Digitais",
+    "4": "2° EM Multimídia",
+    "5": "2° EM Jogos Digitais",
+    "6": "3° EM Jogos Digitais"
+}
+
     id_aluno = input("digite o ID do aluno que você quer editar:").strip()
 
     if not id_aluno.isdigit():
@@ -99,20 +109,26 @@ def editar_aluno():
 
             if novo_nome == "" or nova_idade == "" or nova_turma == "":
                 print("Preencha todos os campos")
+
             
-            elif not nova_idade.isdigit():
+            elif not novo_nome.replace(" ", "").isalpha():
+                print("Nome inválido")
+
+            elif nova_turma not in ["1", "2", "3", "4", "5", "6"]:
+                print("Turma inválida")
+            
+            elif not nova_idade.isdigit() or int(nova_idade) <= 0:
                 print("Idade deve ser um número válido")
 
             else:
 
                 cursor.execute(
                 "UPDATE alunos SET nome = %s, idade = %s, turma = %s WHERE id_aluno = %s",
-                (novo_nome, nova_idade, nova_turma, id_aluno)
-        )
+                (novo_nome, nova_idade, turmas[nova_turma], id_aluno))
 
                 conexao.commit()
 
-            print("Aluno atualizado")
+                print("Aluno atualizado")
 
 
         else:
