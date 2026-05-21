@@ -171,4 +171,140 @@ def excluir_aluno(): #ultima parte que eu venécios terei que fazer
 # é para começar a programar o sistema de notas apartir desse comentario, o código n vai dar o resultado no terminar pq n tem 
 # o menu ainda só no final do cod a gente vai poder corrigir de uma forma "melhor" recomendo testar o codigo em outro arquivo no vscode
 #para ir vendo o progresso e depois de terminar por favor  cole o codigo no cod_alunos_adc para o igor poder fazer o menu
+
+# sistema de boletim escolar
+
+notas_aluno = []
+
+# adicionar nota
+def adicionar_nota():
+
+    nota = float(input("Digite a nota: "))
+
+    if nota >= 0 and nota <= 10:
+        notas_aluno.append(nota)
+        print("Nota adicionada!\n")
+
+    else:
+        print("A nota precisa ser entre 0 e 10\n")
+
+
+# remover nota
+def remover_nota():
+
+    if len(notas_aluno) == 0:
+        print("Nao existem notas cadastradas\n")
+
+    else:
+        print("Notas:", notas_aluno)
+
+        nota_remover = float(input("Digite a nota que deseja remover: "))
+
+        if nota_remover in notas_aluno:
+            notas_aluno.remove(nota_remover)
+            print("Nota removida com sucesso\n")
+
+        else:
+            print("Nota nao encontrada\n")
+
+
+# calcular média
+def calcular_media():
+
+    if len(notas_aluno) == 0:
+        return 0
+
+    soma_notas = 0
+
+    for nota in notas_aluno:
+        soma_notas = soma_notas + nota
+
+    media = soma_notas / len(notas_aluno)
+
+    return media
+
+
+# verificar situação do aluno
+def verificar_status():
+
+    media = calcular_media()
+
+    if media >= 7:
+        return "Aprovado"
+
+    elif media >= 5:
+        return "Recuperacao"
+
+    else:
+        return "Reprovado"
+
+
+# mostrar boletim completo
+def mostrar_boletim():
+
+    print("\n======== BOLETIM ========")
+
+    if len(notas_aluno) == 0:
+        print("Nenhuma nota cadastrada")
+
+    else:
+        print("Notas do aluno:", notas_aluno)
+
+        media_final = calcular_media()
+
+        print("Media final:", round(media_final, 2))
+
+        status = verificar_status()
+
+        print("Situacao:", status)
+
+    print("=========================\n")
+
+
+# menu principal
+while True:
+
+    print("1 - Adicionar nota")
+    print("2 - Remover nota")
+    print("3 - Calcular media")
+    print("4 - Verificar status")
+    print("5 - Mostrar boletim")
+    print("6 - Sair")
+
+    escolha = input("Escolha uma opção: ")
+
+    if escolha == "1":
+        adicionar_nota()
+
+    elif escolha == "2":
+        remover_nota()
+
+    elif escolha == "3":
+
+        media = calcular_media()
+
+        print("Media do aluno:", round(media, 2))
+        print()
+
+    elif escolha == "4":
+
+        situacao = verificar_status()
+
+        print("Status do aluno:", situacao)
+        print()
+
+    elif escolha == "5":
+        mostrar_boletim()
+
+    elif escolha == "6":
+
+        print("Encerrando sistema...")
+        break
+
+    else:
+        print("Opcao invalida, tente novamente\n")
+
+
+# fim do codigo
+# acho q ficou bom 👍
  
