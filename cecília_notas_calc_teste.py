@@ -261,48 +261,7 @@ def mostrar_boletim():
     print("=========================\n")
 
 
-# menu principal
-while True:
 
-    print("1 - Adicionar nota")
-    print("2 - Remover nota")
-    print("3 - Calcular media")
-    print("4 - Verificar status")
-    print("5 - Mostrar boletim")
-    print("6 - Sair")
-
-    escolha = input("Escolha uma opção: ")
-
-    if escolha == "1":
-        adicionar_nota()
-
-    elif escolha == "2":
-        remover_nota()
-
-    elif escolha == "3":
-
-        media = calcular_media()
-
-        print("Media do aluno:", round(media, 2))
-        print()
-
-    elif escolha == "4":
-
-        situacao = verificar_status()
-
-        print("Status do aluno:", situacao)
-        print()
-
-    elif escolha == "5":
-        mostrar_boletim()
-
-    elif escolha == "6":
-
-        print("Encerrando sistema...")
-        break
-
-    else:
-        print("Opcao invalida, tente novamente\n")
 
 
 # fim do codigo
