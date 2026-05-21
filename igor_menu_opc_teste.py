@@ -303,4 +303,3 @@ while True:
 
 # fim do codigo
 # acho q ficou bom 👍
- 
