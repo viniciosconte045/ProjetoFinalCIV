@@ -10,7 +10,7 @@ def conectar():
         database="escola_db"
     )
 
-def cadastrar_aluno():
+def cadastrar_aluno(): #função do administrador
     conexao = conectar()
 
     cursor = conexao.cursor()
@@ -54,7 +54,7 @@ def cadastrar_aluno():
 
     conexao.close()
 
-def listar_alunos():
+def listar_alunos(): #função do administrador e do professor
     conexao = conectar()
 
     cursor = conexao.cursor()
@@ -73,7 +73,7 @@ def listar_alunos():
 
     conexao.close()
 
-def editar_aluno():
+def editar_aluno(): #função do administrador
 
     conexao = conectar()
 
@@ -140,7 +140,7 @@ def editar_aluno():
 
     conexao.close()
 
-def excluir_aluno(): #ultima parte que eu venécios terei que fazer
+def excluir_aluno(): #função do administrador
     conexao = conectar()
 
     cursor = conexao.cursor()
@@ -173,7 +173,7 @@ def excluir_aluno(): #ultima parte que eu venécios terei que fazer
 notas_aluno = []
 
 # adicionar nota
-def adicionar_nota():
+def adicionar_nota(): #função do professor
 
     nota = float(input("Digite a nota: "))
 
@@ -186,7 +186,7 @@ def adicionar_nota():
 
 
 # remover nota
-def remover_nota():
+def remover_nota(): #função do professor
 
     if len(notas_aluno) == 0:
         print("Nao existem notas cadastradas\n")
@@ -205,7 +205,7 @@ def remover_nota():
 
 
 # calcular média
-def calcular_media():
+def calcular_media(): #função do aluno
 
     if len(notas_aluno) == 0:
         return 0
@@ -221,7 +221,7 @@ def calcular_media():
 
 
 # verificar situação do aluno
-def verificar_status():
+def verificar_status(): #função do professor e do aluno
 
     media = calcular_media()
 
@@ -236,7 +236,7 @@ def verificar_status():
 
 
 # mostrar boletim completo
-def mostrar_boletim():
+def mostrar_boletim(): #função do professor e do aluno
 
     print("\n======== BOLETIM ========")
 
@@ -257,48 +257,6 @@ def mostrar_boletim():
     print("=========================\n")
 
 
-# menu principal
-while True:
-
-    print("1 - Adicionar nota")
-    print("2 - Remover nota")
-    print("3 - Calcular media")
-    print("4 - Verificar status")
-    print("5 - Mostrar boletim")
-    print("6 - Sair")
-
-    escolha = input("Escolha uma opção: ")
-
-    if escolha == "1":
-        adicionar_nota()
-
-    elif escolha == "2":
-        remover_nota()
-
-    elif escolha == "3":
-
-        media = calcular_media()
-
-        print("Media do aluno:", round(media, 2))
-        print()
-
-    elif escolha == "4":
-
-        situacao = verificar_status()
-
-        print("Status do aluno:", situacao)
-        print()
-
-    elif escolha == "5":
-        mostrar_boletim()
-
-    elif escolha == "6":
-
-        print("Encerrando sistema...")
-        break
-
-    else:
-        print("Opcao invalida, tente novamente\n")
 
 
 # fim do codigo
