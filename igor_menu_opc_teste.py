@@ -396,4 +396,5 @@ if __name__ == "__main__":
     "\n9. Mostrar boletim completo (Professor e Aluno)" \
     "\n0. Sair"
     print(mumero)
+    opcao = input("Digite o número da opção desejada: ").strip()
     
