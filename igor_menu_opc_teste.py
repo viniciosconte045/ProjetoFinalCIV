@@ -255,13 +255,8 @@ def mostrar_boletim(): #função do professor e do aluno
         print("Situacao:", status)
 
     print("=========================\n")
-
-
-
-
 # fim do codigo
 # acho q ficou bom 👍
-
 meu_meu = "menu opc teste"
 print(meu_meu)
 if __name__ == "__main__":
