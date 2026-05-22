@@ -13,9 +13,11 @@ def cadastrar_aluno():
 
     cursor = conexao.cursor()
 
-    nome = input("Digite seu nome:  ").strip()
+    nome = input("Digite o nome do aluno:  ").strip()
 
-    idade = input("Digite sua idade em números:  ").strip()
+    idade = input("Digite a idade do aluno em números:  ").strip()
+
+    senha = input("Dgite a senha do aluno:  ").strip()
 
     print("Opções de turma: \n 1: 1° EM DS \n 2: 1° EM multimídia \n 3: 1° EM Jogos Digitais \n 4: 2° EM Multimídia \n 5: 2° EM Jogos digitais \n 6: 3° EM Jogos Digitais \n")
     turmas = {
@@ -27,7 +29,7 @@ def cadastrar_aluno():
         "5": "2° EM Jogos Digitais",
         "6": "3° EM Jogos Digitais"
     }
-    opcao_turma = input("Digite o numero da sua turma:  ").strip()
+    opcao_turma = input("Digite o numero da turma:  ").strip()
 
     if opcao_turma not in turmas:
         print("Turma inválida\n")
@@ -37,6 +39,18 @@ def cadastrar_aluno():
 
     elif not idade.isdigit() or int(idade) <= 0:
         print("idade deve ser um número valido\n")
+
+    elif senha == "":
+        print("Senha não pode ser vazia\n")
+
+    elif len (senha) < 3:
+        print("Senha deve ter pelo menos 3 caracteres")
+
+    elif senha.isspaace():
+        print("Senha não pode ser apenas espaços\n")
+
+    elif ( " " in senha):
+        print("Senha não pode conter espaços\n")
 
     else:
         cursor.execute(
