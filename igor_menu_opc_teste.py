@@ -327,3 +327,15 @@ if __name__ == "__main__":
     "\n9. Mostrar boletim completo (Professor e Aluno)" \
     "\n0. Sair"
     print(meu_meu)
+    append = "menu de administração de alunos e notas" \
+    "\n1. Cadastrar aluno (Administrador)" \
+    "\n2. Listar alunos (Administrador e Professor)" \
+    "\n3. Editar aluno (Administrador)" \
+    "\n4. Excluir aluno (Administrador)" \
+    "\n5. Adicionar nota (Professor)" \
+    "\n6. Remover nota (Professor)" \
+    "\n7. Calcular média (Aluno)" \
+    "\n8. Verificar situação do aluno (Professor e Aluno)" \
+    "\n9. Mostrar boletim completo (Professor e Aluno)" \
+    "\n0. Sair"
+    print(append)
