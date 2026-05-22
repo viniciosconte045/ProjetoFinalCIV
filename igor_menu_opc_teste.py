@@ -445,4 +445,37 @@ if __name__ == "__main__":
         print("9. Mostrar boletim completo (Professor e Aluno)")
         print("0. Sair")
     menu()
-    
+    key = input("Digite o número da opção desejada: ").strip()
+    if key in lista_opcoes:
+        if key == "1":
+            cadastrar_aluno()
+        
+        elif key == "2":
+            listar_alunos()
+
+        elif key == "3":
+            editar_aluno()
+
+        elif key == "4":
+            excluir_aluno()
+
+        elif key == "5":
+            adicionar_nota()
+
+        elif key == "6":
+            remover_nota()
+
+        elif key == "7":
+            media = calcular_media()
+            print(f"A média do aluno é: {media:.2f}\n")
+
+        elif key == "8":
+            status = verificar_status()
+            print(f"A situação do aluno é: {status}\n")
+
+        elif key == "9":
+            mostrar_boletim()
+
+        elif key == "0":
+            print("Saindo do programa...")
+            
