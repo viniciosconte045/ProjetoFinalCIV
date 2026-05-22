@@ -478,4 +478,5 @@ if __name__ == "__main__":
 
         elif key == "0":
             print("Saindo do programa...")
-            
+#ajo que e so isso maissi si quiser mudar fique a vontade,
+
