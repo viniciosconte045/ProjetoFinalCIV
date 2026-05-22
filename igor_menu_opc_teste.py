@@ -385,7 +385,7 @@ if __name__ == "__main__":
     "\n0. Sair"
     print(texto)
     mumero = "menu de administração de alunos e notas" \
-    "\n1. Cadastrar aluno (Administrador)" \   
+    "\n1. Cadastrar aluno (Administrador)" \
     "\n2. Listar alunos (Administrador e Professor)" \
     "\n3. Editar aluno (Administrador)" \
     "\n4. Excluir aluno (Administrador)" \
