@@ -375,7 +375,7 @@ if __name__ == "__main__":
     texto = "menu de administração de alunos e notas" \
     "\n1. Cadastrar aluno (Administrador)" \
     "\n2. Listar alunos (Administrador e Professor)" \
-    "\n3. Editar aluno (Administrador)" \  
+    "\n3. Editar aluno (Administrador)" \
     "\n4. Excluir aluno (Administrador)" \
     "\n5. Adicionar nota (Professor)" \
     "\n6. Remover nota (Professor)" \
@@ -445,4 +445,69 @@ if __name__ == "__main__":
         print("9. Mostrar boletim completo (Professor e Aluno)")
         print("0. Sair")
     menu()
+    key = input("Digite o número da opção desejada: ").strip()
+    if key in lista_opcoes:
+        if key == "1":
+            cadastrar_aluno()
+        
+        elif key == "2":
+            listar_alunos()
+
+        elif key == "3":
+            editar_aluno()
+
+        elif key == "4":
+            excluir_aluno()
+
+        elif key == "5":
+            adicionar_nota()
+
+        elif key == "6":
+            remover_nota()
+
+        elif key == "7":
+            media = calcular_media()
+            print(f"A média do aluno é: {media:.2f}\n")
+
+        elif key == "8":
+            status = verificar_status()
+            print(f"A situação do aluno é: {status}\n")
+
+        elif key == "9":
+            mostrar_boletim()
+
+        elif key == "0":
+            print("Saindo do programa...")
+for opcao in lista_opcoes:
+    if opcao == "1":
+        cadastrar_aluno()
     
+    elif opcao == "2":
+        listar_alunos()
+
+    elif opcao == "3":
+        editar_aluno()
+
+    elif opcao == "4":
+        excluir_aluno()
+
+    elif opcao == "5":
+        adicionar_nota()
+
+    elif opcao == "6":
+        remover_nota()
+
+    elif opcao == "7":
+        media = calcular_media()
+        print(f"A média do aluno é: {media:.2f}\n")
+
+    elif opcao == "8":
+        status = verificar_status()
+        print(f"A situação do aluno é: {status}\n")
+
+    elif opcao == "9":
+        mostrar_boletim()
+
+    elif opcao == "0":
+        print("Saindo do programa...")
+#ajo que e so isso maissi si quiser mudar fique a vontade,
