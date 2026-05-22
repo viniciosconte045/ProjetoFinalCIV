@@ -47,7 +47,7 @@ def cadastrar_aluno():
         print("Senha deve ter pelo menos 3 caracteres")
 
     elif senha.isspaace():
-        print("Senha não pode ser apenas espaços\n")
+        print("Senha não pode ser apenas espaços\n") # se pá é desnecessário, mas é melhor ter
 
     elif ( " " in senha):
         print("Senha não pode conter espaços\n")
@@ -152,7 +152,7 @@ def editar_aluno():
 
     conexao.close()
 
-def excluir_aluno(): #ultima parte que eu venécios terei que fazer
+def excluir_aluno(): #ultima parte que eu venécios terei que fazer, erá mentira, eu fui enganado por meus conecimentos, maldito homem que acredita em mim si proprio
     conexao = conectar()
 
     cursor = conexao.cursor()
