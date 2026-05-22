@@ -375,7 +375,7 @@ if __name__ == "__main__":
     texto = "menu de administração de alunos e notas" \
     "\n1. Cadastrar aluno (Administrador)" \
     "\n2. Listar alunos (Administrador e Professor)" \
-    "\n3. Editar aluno (Administrador)" \      
+    "\n3. Editar aluno (Administrador)" \  
     "\n4. Excluir aluno (Administrador)" \
     "\n5. Adicionar nota (Professor)" \
     "\n6. Remover nota (Professor)" \
@@ -432,4 +432,17 @@ if __name__ == "__main__":
             print("Saindo do programa...")
     else:
         print("Opção inválida, tente novamente.\n")
-        
+    def menu():
+        print("Menu de opções:")
+        print("1. Cadastrar aluno (Administrador)")
+        print("2. Listar alunos (Administrador e Professor)")
+        print("3. Editar aluno (Administrador)")
+        print("4. Excluir aluno (Administrador)")
+        print("5. Adicionar nota (Professor)")
+        print("6. Remover nota (Professor)")
+        print("7. Calcular média (Aluno)")
+        print("8. Verificar situação do aluno (Professor e Aluno)")
+        print("9. Mostrar boletim completo (Professor e Aluno)")
+        print("0. Sair")
+    menu()
+    
