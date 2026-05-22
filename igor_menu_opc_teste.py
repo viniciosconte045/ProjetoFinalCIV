@@ -371,7 +371,7 @@ if __name__ == "__main__":
             break
 
         else:
-            print("Opção inválida, tente novamente.\n")
+         print("Opção inválida, tente novamente.\n")
     texto = "menu de administração de alunos e notas" \
     "\n1. Cadastrar aluno (Administrador)" \
     "\n2. Listar alunos (Administrador e Professor)" \
