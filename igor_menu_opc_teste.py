@@ -375,7 +375,7 @@ if __name__ == "__main__":
     texto = "menu de administração de alunos e notas" \
     "\n1. Cadastrar aluno (Administrador)" \
     "\n2. Listar alunos (Administrador e Professor)" \
-    "\n3. Editar aluno (Administrador)" \  
+    "\n3. Editar aluno (Administrador)" \
     "\n4. Excluir aluno (Administrador)" \
     "\n5. Adicionar nota (Professor)" \
     "\n6. Remover nota (Professor)" \
