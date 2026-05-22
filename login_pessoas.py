@@ -1,27 +1,22 @@
 import mysql.connector
 
-def login():
-    conexao = conectar()
-    cursor = conexao.cursor()
-
-    usuario = input("digite seu nome de usuário:").strip()
-
-    senha = input("digite sua senha:").strip()
-
-    cursor.execute(
-        "SELECT * FROM usuarios WHERE usuario = %s AND senha = %s", 
-        (usuario, senha)
+def conectar():
+    return mysql.connector.connect(
+        host="127.0.0.1",
+        user="root",
+        password="Senac2026",
+        database="escola_db"
     )
 
-    resultado = cursor.fetchone()
+adm_usuario = "Bruno"
+adms_senha = "BOA_NOITE_BRUNO"
 
-    if resultado:
-        print("Login realizado com sucesso!")
+def login(usuario, senha):
+    if usuario == adm_usuario and senha == adms_senha:
+        return "Bem vindo, administrador!"
+    if usuario == "aluno" and senha == "123456":
+        return "Bem vindo, aluno!"
+    if usuario == "professor" and senha == "654321":
+        return "Bem vindo, professor!"
     else:
-        print("Usuário ou senha incorretos.")
-
-    if resultado:
-        tipo = resultado[0]
-
-
-
+        return "Usuário ou senha incorretos"
