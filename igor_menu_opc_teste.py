@@ -261,4 +261,3 @@ def mostrar_boletim(): #função do professor e do aluno
 
 # fim do codigo
 # acho q ficou bom 👍
- 
