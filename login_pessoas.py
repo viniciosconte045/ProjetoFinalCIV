@@ -9,38 +9,51 @@ def conectar():
     )
 
 def login():
+    try:
+        conexao = conectar()
+        cursor = conexao.cursor()
 
-    conexao = conectar()
+        # Solicita ID do usuário
+        try:
+            id_usuario = int(input("ID do Usuário: ").strip())
+        except ValueError:
+            print("ID inválido! Deve ser um número.")
+            return
 
-    cursor = conexao.cursor()
+        senha = input("Senha: ").strip()
 
-    usuario = input("Usuário: ").strip()
+        # Busca usuário pelo ID e valida senha
+        cursor.execute(
+            "SELECT id, tipo_usuario FROM usuarios WHERE id = %s AND senha = %s",
+            (id_usuario, senha)
+        )
 
-    senha = input("Senha: ").strip()
+        resultado = cursor.fetchone()
 
-    cursor.execute(
-        "SELECT * FROM usuarios WHERE usuario = %s AND senha = %s",
-        (usuario, senha)
-    )
+        if resultado:
+            id_resultado, tipo_usuario = resultado
+            print("Login realizado com sucesso!")
 
-    resultado = cursor.fetchone()
+            # Direciona para menu conforme tipo de usuário
+            if tipo_usuario == "aluno":
+                menu_aluno()
+            elif tipo_usuario == "professor":
+                menu_professor()
+            elif tipo_usuario == "admin":
+                menu_admin()
+            else:
+                print(f"Tipo de usuário desconhecido: {tipo_usuario}")
 
-    if resultado:
+        else:
+            print("ID ou senha inválidos")
 
-        print("Login realizado")
+        cursor.close()
+        conexao.close()
 
-        if usuario == "admin":
-            menu_admin()
-
-        elif usuario == "professor":
-            menu_professor()
-
-    else:
-        print("Usuário ou senha inválidos")
-
-    cursor.close()
-
-    conexao.close()
+    except mysql.connector.Error as erro:
+        print(f"Erro ao conectar ao banco de dados: {erro}")
+    except Exception as erro:
+        print(f"Erro inesperado: {erro}")
     
 
 
