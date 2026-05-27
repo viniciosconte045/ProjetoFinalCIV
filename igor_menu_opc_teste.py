@@ -594,5 +594,5 @@ funçãos = do menu de administração de alunos e notas" \
     "\n8. Verificar situação do aluno (Professor e Aluno)" \
     "\n9. Mostrar boletim completo (Professor e Aluno)" \
     "\n0. Sair"
-print(funçãos)
-EPUNTO = input("Digite o número da opção desejada: ").strip()
+    print(funçãos)
+    
