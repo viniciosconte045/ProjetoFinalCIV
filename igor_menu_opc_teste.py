@@ -536,6 +536,19 @@ for opcao in lista_opcoes:
 
 #ao inves de cada um ter um menu difente todos tem o mesmo menu
 
+    def definir_menu():
+        menu = "menu de administração de alunos e notas"
+        print(menu)
+        print("1. Cadastrar aluno (Administrador)")
+        print("2. Listar alunos (Administrador e Professor)")
+        print("3. Editar aluno (Administrador)")
+        print("4. Excluir aluno (Administrador)")
+        print("5. Adicionar nota (Professor)")
+        print("6. Remover nota (Professor)")
+        print("7. Calcular média (Aluno)")
+        print("8. Verificar situação do aluno (Professor e Aluno)")
+        print("9. Mostrar boletim completo (Professor e Aluno)")
+        print("0. Sair")
 menu = "menu de administração de alunos e notas" \
     "\n1. Cadastrar aluno (Administrador)" \
     "\n2. Listar alunos (Administrador e Professor)" \
@@ -584,6 +597,8 @@ if oft in lista_opcoes:
 else:    print("Opção inválida, tente novamente.\n")
 #
 funçãos = do menu de administração de alunos e notas" \
+    def menu():
+        print("Menu de opções:")
     "\n1. Cadastrar aluno (Administrador)" \ 
     "\n2. Listar alunos (Administrador e Professor)" \
     "\n3. Editar aluno (Administrador)" \
