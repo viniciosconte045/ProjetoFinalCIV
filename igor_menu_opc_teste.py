@@ -691,3 +691,7 @@ funçãos = do menu de administração de alunos e notas" \
 
         elif funçãos == "0":
             print("Saindo do programa...") 
+        else:
+            print("Opção inválida, tente novamente.\n")
+            definir_menu()
+            
