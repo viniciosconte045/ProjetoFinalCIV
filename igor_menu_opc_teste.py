@@ -690,4 +690,4 @@ funçãos = do menu de administração de alunos e notas" \
             mostrar_boletim()
 
         elif funçãos == "0":
-            print("Saindo do programa...")
+            print("Saindo do programa...") 
