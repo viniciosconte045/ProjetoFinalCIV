@@ -202,8 +202,7 @@ def remover_nota(): #função do professor
 
         else:
             print("Nota nao encontrada\n")
-
-
+            
 # calcular média
 def calcular_media(): #função do aluno
 
@@ -218,7 +217,6 @@ def calcular_media(): #função do aluno
     media = soma_notas / len(notas_aluno)
 
     return media
-
 
 # verificar situação do aluno
 def verificar_status(): #função do professor e do aluno
@@ -235,8 +233,8 @@ def verificar_status(): #função do professor e do aluno
         return "Reprovado"
 
 
-# mostrar boletim completo
-def mostrar_boletim(): #função do professor e do aluno
+ # mostrar boletim completo
+ def mostrar_boletim(): #função do professor e do aluno
 
     print("\n======== BOLETIM ========")
 
@@ -255,11 +253,11 @@ def mostrar_boletim(): #função do professor e do aluno
         print("Situacao:", status)
 
     print("=========================\n")
-# fim do codigo
-# acho q ficou bom 👍
-meu_meu = "menu opc teste"
-print(meu_meu)
-if __name__ == "__main__":
+ # fim do codigo
+ # acho q ficou bom 👍
+ meu_meu = "menu opc teste"
+ print(meu_meu)
+ if __name__ == "__main__":
     while True:
         print("Menu de opções:")
         print("1. Cadastrar aluno (Administrador)")
@@ -531,10 +529,10 @@ for opcao in lista_opcoes:
         mostrar_boletim()
         print("Opção inválida, tente novamente.\n")
         
-#ajo que e so isso maissi si quiser mudar fique a vontade,
-#mas acho que ta bom assim, se quiser mudar o menu ou as opções fique a vontade,
+ #ajo que e so isso maissi si quiser mudar fique a vontade,
+ #mas acho que ta bom assim, se quiser mudar o menu ou as opções fique a vontade,
 
-#ao inves de cada um ter um menu difente todos tem o mesmo menu
+ #ao inves de cada um ter um menu difente todos tem o mesmo menu
 
     def definir_menu():
         menu = "menu de administração de alunos e notas"
