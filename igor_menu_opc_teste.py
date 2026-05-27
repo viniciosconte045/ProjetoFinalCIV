@@ -533,3 +533,52 @@ for opcao in lista_opcoes:
         
 #ajo que e so isso maissi si quiser mudar fique a vontade,
 #mas acho que ta bom assim, se quiser mudar o menu ou as opções fique a vontade,
+
+#ao inves de cada um ter um menu difente todos tem o mesmo menu
+
+menu = "menu de administração de alunos e notas" \
+    "\n1. Cadastrar aluno (Administrador)" \
+    "\n2. Listar alunos (Administrador e Professor)" \
+    "\n3. Editar aluno (Administrador)" \
+    "\n4. Excluir aluno (Administrador)" \ 
+    "\n5. Adicionar nota (Professor)" \
+    "\n6. Remover nota (Professor)" \
+    "\n7. Calcular média (Aluno)" \
+    "\n8. Verificar situação do aluno (Professor e Aluno)" \
+    "\n9. Mostrar boletim completo (Professor e Aluno)" \
+    "\n0. Sair"
+print(menu)
+oft = input("Digite o número da opção desejada: ").strip()
+if oft in lista_opcoes:
+    if oft == "1":
+        cadastrar_aluno()
+    
+    elif oft == "2":
+        listar_alunos()
+
+    elif oft == "3":
+        editar_aluno()
+
+    elif oft == "4":
+        excluir_aluno()
+
+    elif oft == "5":
+        adicionar_nota()
+
+    elif oft == "6":
+        remover_nota()
+
+    elif oft == "7":
+        media = calcular_media()
+        print(f"A média do aluno é: {media:.2f}\n")
+
+    elif oft == "8":
+        status = verificar_status()
+        print(f"A situação do aluno é: {status}\n")
+
+    elif oft == "9":
+        mostrar_boletim()
+
+    elif oft == "0":
+        print("Saindo do programa...")
+else:    print("Opção inválida, tente novamente.\n")
