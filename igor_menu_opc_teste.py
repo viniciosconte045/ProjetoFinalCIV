@@ -629,3 +629,52 @@ funçãos = do menu de administração de alunos e notas" \
 
         elif funçãos == "0":
             print("Saindo do programa...")
+            definir_menu()
+            
+   def definir_menu():
+        menu = "menu de administração de alunos e notas"
+        print(menu)
+        print("1. Cadastrar aluno (Administrador)")
+        print("2. Listar alunos (Administrador e Professor)")
+        print("3. Editar aluno (Administrador)")
+        print("4. Excluir aluno (Administrador)")
+        print("5. Adicionar nota (Professor)")
+        print("6. Remover nota (Professor)")
+        print("7. Calcular média (Aluno)")
+        print("8. Verificar situação do aluno (Professor e Aluno)")
+        print("9. Mostrar boletim completo (Professor e Aluno)")
+        print("0. Sair")
+    definir_menu("Digite o número da opção desejada: ")
+    funçãos = input().strip()
+    if funçãos in lista_opcoes:
+        if funçãos == "1":
+            cadastrar_aluno()
+        
+        elif funçãos == "2":
+            listar_alunos()
+
+        elif funçãos == "3":
+            editar_aluno()
+
+        elif funçãos == "4":
+            excluir_aluno()
+
+        elif funçãos == "5":
+            adicionar_nota()
+
+        elif funçãos == "6":
+            remover_nota()
+
+        elif funçãos == "7":
+            media = calcular_media()
+            print(f"A média do aluno é: {media:.2f}\n")
+
+        elif funçãos == "8":
+            status = verificar_status()
+            print(f"A situação do aluno é: {status}\n")
+
+        elif funçãos == "9":
+            mostrar_boletim()
+
+        elif funçãos == "0":
+            print("Saindo do programa...")
