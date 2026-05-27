@@ -630,7 +630,7 @@ funçãos = do menu de administração de alunos e notas" \
         elif funçãos == "0":
             print("Saindo do programa...")
             definir_menu()
-            
+  #definir_menu() #função do menu, onde todos tem o mesmo menu          
    def definir_menu():
         menu = "menu de administração de alunos e notas"
         print(menu)
