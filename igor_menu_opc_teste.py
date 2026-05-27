@@ -644,9 +644,9 @@ funçãos = do menu de administração de alunos e notas" \
         print("8. Verificar situação do aluno (Professor e Aluno)")
         print("9. Mostrar boletim completo (Professor e Aluno)")
         print("0. Sair")
-    definir_menu("Digite o número da opção desejada: ")
-    funçãos = input().strip()
-    if funçãos in lista_opcoes:
+      definir_menu("Digite o número da opção desejada: ")
+      funçãos = input().strip()
+      if funçãos in lista_opcoes:
         if funçãos == "1":
             cadastrar_aluno()
         
