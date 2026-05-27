@@ -9,52 +9,44 @@ def conectar():
     )
 
 def login():
-    try:
-        conexao = conectar()
-        cursor = conexao.cursor()
 
-        # Solicita ID do usuário
-        try:
-            id_usuario = int(input("ID do Usuário: ").strip())
-        except ValueError:
-            print("ID inválido! Deve ser um número.")
-            return
+    conexao= conectar()
+    cursor = conexao.cursor()
 
-        senha = input("Senha: ").strip()
-
-        # Busca usuário pelo ID e valida senha
-        cursor.execute(
-            "SELECT id, tipo_usuario FROM usuarios WHERE id = %s AND senha = %s",
-            (id_usuario, senha)
-        )
-
-        resultado = cursor.fetchone()
-
-        if resultado:
-            id_resultado, tipo_usuario = resultado
-            print("Login realizado com sucesso!")
-
-            # Direciona para menu conforme tipo de usuário
-            if tipo_usuario == "aluno":
-                menu_aluno()
-            elif tipo_usuario == "professor":
-                menu_professor()
-            elif tipo_usuario == "admin":
-                menu_admin()
-            else:
-                print(f"Tipo de usuário desconhecido: {tipo_usuario}")
-
-        else:
-            print("ID ou senha inválidos")
-
-        cursor.close()
-        conexao.close()
-
-    except mysql.connector.Error as erro:
-        print(f"Erro ao conectar ao banco de dados: {erro}")
-    except Exception as erro:
-        print(f"Erro inesperado: {erro}")
+    professor = {
+        "professor1": "apaga",
     
+    }
 
+    admin = {
+        "admin1": "josefa",
+    }
+
+    nome_usua = input("Digite o nome do usuario: ").strip()
+    senha_usua = input ("Digite a senha do usuario: ").strip()
+
+    if senha_usua == "":
+        print("Senha não pode ser vazia\n")
+
+    if senha_usua.isspace():
+        print("Senha não pode ser apenas espaços\n")
+
+    if nome_usua== "" or nome_usua.isspace():
+        print("Nome de usuario não pode ser vazio ou apenas espaços\n")
+
+    if nome_usua == "":
+        print("Nome de usuario não pode ser vazio\n")
+
+    if nome_usua.isspace():
+        print("Nome de usuario não pode ser apenas espaços\n")
+
+    if nome_usua in professor and senha_usua == professor[nome_usua]:
+        print("Login de professor bem-sucedido\n")
+        return "professor"
+
+    if nome_usua in admin and senha_usua == admin[nome_usua]:
+        print("Login de admin bem-sucedido\n")
+        return "admin"
+    cursor.execute("SELECT nome, senha FROM alunos")
 
 
