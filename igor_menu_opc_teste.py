@@ -594,5 +594,38 @@ funçãos = do menu de administração de alunos e notas" \
     "\n8. Verificar situação do aluno (Professor e Aluno)" \
     "\n9. Mostrar boletim completo (Professor e Aluno)" \
     "\n0. Sair"
-    print(funçãos)
-    
+    print("Digite o número da opção desejada: ")
+
+    funçãos = input().strip()
+    if funçãos in lista_opcoes:
+        if funçãos == "1":
+            cadastrar_aluno()
+        
+        elif funçãos == "2":
+            listar_alunos()
+
+        elif funçãos == "3":
+            editar_aluno()
+
+        elif funçãos == "4":
+            excluir_aluno()
+
+        elif funçãos == "5":
+            adicionar_nota()
+
+        elif funçãos == "6":
+            remover_nota()
+
+        elif funçãos == "7":
+            media = calcular_media()
+            print(f"A média do aluno é: {media:.2f}\n")
+
+        elif funçãos == "8":
+            status = verificar_status()
+            print(f"A situação do aluno é: {status}\n")
+
+        elif funçãos == "9":
+            mostrar_boletim()
+
+        elif funçãos == "0":
+            print("Saindo do programa...")
