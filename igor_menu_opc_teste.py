@@ -528,5 +528,8 @@ for opcao in lista_opcoes:
 
     elif opcao == "0":
         print("Saindo do programa...")
+        mostrar_boletim()
+        print("Opção inválida, tente novamente.\n")
+        
 #ajo que e so isso maissi si quiser mudar fique a vontade,
 #mas acho que ta bom assim, se quiser mudar o menu ou as opções fique a vontade,
