@@ -686,7 +686,7 @@ funçãos = input("Digite o número da opção desejada: ").strip("Digite o núm
 if funçãos in lista_opcoes:
  if funçãos == "1":
             cadastrar_aluno("Digite seu nome:  ", "Digite sua idade em números:  ", "Digite o numero da sua turma:  ")
-        
+
 elif funçãos == "2":
             listar_alunos("Digite o número da opção desejada: ")
 
