@@ -644,7 +644,7 @@ funçãos = do menu de administração de alunos e notas" \
             print("Saindo do programa...")
             definir_menu()
   #definir_menu() #função do menu, onde todos tem o mesmo menu          
-   def definir_menu():
+    def  definir_menu():
         menu = "menu de administração de alunos e notas"
         print(menu)
         print("1. Cadastrar aluno (Administrador)")
@@ -657,41 +657,40 @@ funçãos = do menu de administração de alunos e notas" \
         print("8. Verificar situação do aluno (Professor e Aluno)")
         print("9. Mostrar boletim completo (Professor e Aluno)")
         print("0. Sair")
-      definir_menu("Digite o número da opção desejada: ")
-      funçãos = input().strip()
-      if funçãos in lista_opcoes:
-        if funçãos == "1":
+    definir_menu("Digite o número da opção desejada: ")
+    funçãos = input().strip()
+    if funçãos in lista_opcoes:
+     if funçãos == "1":
             cadastrar_aluno()
         
-        elif funçãos == "2":
+    elif funçãos == "2":
             listar_alunos()
 
-        elif funçãos == "3":
+    elif funçãos == "3":
             editar_aluno()
 
-        elif funçãos == "4":
+    elif funçãos == "4":
             excluir_aluno()
 
-        elif funçãos == "5":
+    elif funçãos == "5":
             adicionar_nota()
 
-        elif funçãos == "6":
+    elif funçãos == "6":
             remover_nota()
 
-        elif funçãos == "7":
+    elif funçãos == "7":
             media = calcular_media()
             print(f"A média do aluno é: {media:.2f}\n")
 
-        elif funçãos == "8":
+    elif funçãos == "8":
             status = verificar_status()
             print(f"A situação do aluno é: {status}\n")
 
-        elif funçãos == "9":
+    elif funçãos == "9":
             mostrar_boletim()
 
-        elif funçãos == "0":
+    elif funçãos == "0":
             print("Saindo do programa...") 
-        else:
+    else:
             print("Opção inválida, tente novamente.\n")
             definir_menu()
-            
