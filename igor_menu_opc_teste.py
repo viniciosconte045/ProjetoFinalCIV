@@ -722,3 +722,4 @@ else:
             definir_menu("Digite o número da opção desejada: ")
             print("Digite o número da opção desejada: ")
             funçãos = input().strip()
+# siquier mudar vique avontade o codico.
