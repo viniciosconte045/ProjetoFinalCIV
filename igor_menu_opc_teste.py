@@ -234,7 +234,7 @@ def verificar_status(): #função do professor e do aluno
 
 
  # mostrar boletim completo
- def mostrar_boletim(): #função do professor e do aluno
+def mostrar_boletim(): #função do professor e do aluno
 
     print("\n======== BOLETIM ========")
 
@@ -255,9 +255,9 @@ def verificar_status(): #função do professor e do aluno
     print("=========================\n")
  # fim do codigo
  # acho q ficou bom 👍
- meu_meu = "menu opc teste"
- print(meu_meu)
- if __name__ == "__main__":
+meu_meu = "menu opc teste"
+print(meu_meu)
+if __name__ == "__main__":
     while True:
         print("Menu de opções:")
         print("1. Cadastrar aluno (Administrador)")
@@ -551,8 +551,8 @@ menu = "menu de administração de alunos e notas" \
     "\n1. Cadastrar aluno (Administrador)" \
     "\n2. Listar alunos (Administrador e Professor)" \
     "\n3. Editar aluno (Administrador)" \
-    "\n4. Excluir aluno (Administrador)" \ 
-    "\n5. Adicionar nota (Professor)" \
+    "\n4. Excluir aluno (Administrador)" \
+"\n5. Adicionar nota (Professor)" \
     "\n6. Remover nota (Professor)" \
     "\n7. Calcular média (Aluno)" \
     "\n8. Verificar situação do aluno (Professor e Aluno)" \
@@ -561,56 +561,82 @@ menu = "menu de administração de alunos e notas" \
 print(menu)
 oft = input("Digite o número da opção desejada: ").strip()
 if oft in lista_opcoes:
-    if oft == "1":
+     if oft == "1":
         cadastrar_aluno()
     
-    elif oft == "2":
+elif oft == "2":
         listar_alunos()
 
-    elif oft == "3":
+elif oft == "3":
         editar_aluno()
 
-    elif oft == "4":
+elif oft == "4":
         excluir_aluno()
 
-    elif oft == "5":
+elif oft == "5":
         adicionar_nota()
 
-    elif oft == "6":
+elif oft == "6":
         remover_nota()
 
-    elif oft == "7":
+elif oft == "7":
         media = calcular_media()
         print(f"A média do aluno é: {media:.2f}\n")
 
-    elif oft == "8":
+elif oft == "8":
         status = verificar_status()
         print(f"A situação do aluno é: {status}\n")
 
-    elif oft == "9":
+elif oft == "9":
         mostrar_boletim()
 
-    elif oft == "0":
+elif oft == "0":
         print("Saindo do programa...")
 else:    print("Opção inválida, tente novamente.\n")
 #
-funçãos = do menu de administração de alunos e notas" \
-    def menu():
-        print("Menu de opções:")
-    "\n1. Cadastrar aluno (Administrador)" \ 
-    "\n2. Listar alunos (Administrador e Professor)" \
-    "\n3. Editar aluno (Administrador)" \
-    "\n4. Excluir aluno (Administrador)" \
-    "\n5. Adicionar nota (Professor)" \
-    "\n6. Remover nota (Professor)" \
-    "\n7. Calcular média (Aluno)" \
-    "\n8. Verificar situação do aluno (Professor e Aluno)" \
-    "\n9. Mostrar boletim completo (Professor e Aluno)" \
-    "\n0. Sair"
-    print("Digite o número da opção desejada: ")
+funçãos = input("Digite o número da opção desejada: ").strip()
+lista_opcoes = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+if funçãos in lista_opcoes:
+ if funçãos == "1":
+            cadastrar_aluno()
+    
+elif funçãos == "2":
+         listar_alunos()
 
-    funçãos = input().strip()
-    if funçãos in lista_opcoes:
+elif funçãos == "3":
+            editar_aluno()
+elif funçãos == "4":
+        excluir_aluno()
+
+elif funçãos == "5":
+        adicionar_nota()
+
+elif funçãos == "6":
+        remover_nota()
+
+elif funçãos == "7":
+        media = calcular_media()
+        print(f"A média do aluno é: {media:.2f}\n")
+
+elif funçãos == "8":
+        status = verificar_status()
+        print(f"A situação do aluno é: {status}\n")
+
+elif funçãos == "9":
+        mostrar_boletim()
+
+elif funçãos == "0":
+        print("Saindo do programa...") 
+else:
+            print("Opção inválida, tente novamente.\n")
+            definir_menu()
+            print("Digite o número da opção desejada: ")
+            funçãos = input().strip()
+"Opção inválida, tente novamente.\n"
+definir_menu()
+
+funçãos = input().strip()
+if funçãos in lista_opcoes:
         if funçãos == "1":
             cadastrar_aluno()
         
@@ -644,7 +670,7 @@ funçãos = do menu de administração de alunos e notas" \
             print("Saindo do programa...")
             definir_menu()
   #definir_menu() #função do menu, onde todos tem o mesmo menu          
-   def definir_menu():
+def  definir_menu():
         menu = "menu de administração de alunos e notas"
         print(menu)
         print("1. Cadastrar aluno (Administrador)")
@@ -657,41 +683,42 @@ funçãos = do menu de administração de alunos e notas" \
         print("8. Verificar situação do aluno (Professor e Aluno)")
         print("9. Mostrar boletim completo (Professor e Aluno)")
         print("0. Sair")
-      definir_menu("Digite o número da opção desejada: ")
-      funçãos = input().strip()
-      if funçãos in lista_opcoes:
-        if funçãos == "1":
+definir_menu("Digite o número da opção desejada: ")
+funçãos = input().strip()
+if funçãos in lista_opcoes:
+ if funçãos == "1":
             cadastrar_aluno()
         
-        elif funçãos == "2":
+elif funçãos == "2":
             listar_alunos()
 
-        elif funçãos == "3":
+elif funçãos == "3":
             editar_aluno()
 
-        elif funçãos == "4":
+elif funçãos == "4":
             excluir_aluno()
 
-        elif funçãos == "5":
+elif funçãos == "5":
             adicionar_nota()
 
-        elif funçãos == "6":
+elif funçãos == "6":
             remover_nota()
 
-        elif funçãos == "7":
+elif funçãos == "7":
             media = calcular_media()
             print(f"A média do aluno é: {media:.2f}\n")
 
-        elif funçãos == "8":
+elif funçãos == "8":
             status = verificar_status()
             print(f"A situação do aluno é: {status}\n")
 
-        elif funçãos == "9":
+elif funçãos == "9":
             mostrar_boletim()
 
-        elif funçãos == "0":
+elif funçãos == "0":
             print("Saindo do programa...") 
-        else:
+else:
             print("Opção inválida, tente novamente.\n")
             definir_menu()
-            
+            print("Digite o número da opção desejada: ")
+            funçãos = input().strip()
