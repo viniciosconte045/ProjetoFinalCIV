@@ -721,5 +721,5 @@ else:
             print("Opção inválida, tente novamente.\n")
             definir_menu("Digite o número da opção desejada: ")
             print("Digite o número da opção desejada: ")
-            funçãos = input().strip()
+            funçãos = input().strip("Digite o número da opção desejada:")
 # siquier mudar vique avontade o codico.
