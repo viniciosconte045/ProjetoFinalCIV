@@ -532,8 +532,8 @@ for opcao in lista_opcoes:
 
  #ao inves de cada um ter um menu difente todos tem o mesmo menu
 
-    def definir_menu():
-        menu = "menu de administração de alunos e notas"
+    def definir_menu(mensagem):
+        menu = "menu de administração de alunos e notas" 
         print(menu)
         print("1. Cadastrar aluno (Administrador)")
         print("2. Listar alunos (Administrador e Professor)")
@@ -560,33 +560,33 @@ print(menu)
 oft = input("Digite o número da opção desejada: ").strip()
 if oft in lista_opcoes:
      if oft == "1":
-        cadastrar_aluno()
+        cadastrar_aluno("Digite seu nome:  ", "Digite sua idade em números:  ", "Digite o numero da sua turma:  ")
     
 elif oft == "2":
-        listar_alunos()
+        listar_alunos("Digite o número da opção desejada: ")
 
 elif oft == "3":
-        editar_aluno()
+        editar_aluno("digite o ID do aluno que você quer editar: \n","Digite o novo nome do aluno(reescreva o nome caso queira mante-lo)\n:","digite a nova idade do aluno(redigite a idade caso queira mante-la)\n:","digite o numero da nova turma(redigite o número caso queira mante-lo):\n")
 
 elif oft == "4":
-        excluir_aluno()
+        excluir_aluno("digite o ID do aluno que você quer excluir: \n")
 
 elif oft == "5":
-        adicionar_nota()
+        adicionar_nota("Digite a nota: ")
 
 elif oft == "6":
-        remover_nota()
+        remover_nota("Digite a nota que deseja remover: ")
 
 elif oft == "7":
-        media = calcular_media()
+        media = calcular_media("Digite o número da opção desejada: ")
         print(f"A média do aluno é: {media:.2f}\n")
 
 elif oft == "8":
-        status = verificar_status()
+        status = verificar_status("Digite o número da opção desejada:")
         print(f"A situação do aluno é: {status}\n")
 
 elif oft == "9":
-        mostrar_boletim()
+        mostrar_boletim("Digite o número da opção desejada: ")
 
 elif oft == "0":
         print("Saindo do programa...")
@@ -617,11 +617,11 @@ elif funçãos == "7":
         print(f"A média do aluno é: {media:.2f}\n")
 
 elif funçãos == "8":
-        status = verificar_status()
+        status = verificar_status("Digite o número da opção desejada:")
         print(f"A situação do aluno é: {status}\n")
 
 elif funçãos == "9":
-        mostrar_boletim()
+        mostrar_boletim("Digite o número da opção desejada: ")
 
 elif funçãos == "0":
         print("Saindo do programa...") 
@@ -629,7 +629,7 @@ else:
             print("Opção inválida, tente novamente.\n")
             definir_menu()
             print("Digite o número da opção desejada: ")
-            funçãos = input().strip()
+            funçãos = input("Digite o número da opção desejada: ").strip("Digite o número da opção desejada: ")
 "Opção inválida, tente novamente.\n"
 definir_menu()
 
