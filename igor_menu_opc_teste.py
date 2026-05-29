@@ -682,7 +682,7 @@ def  definir_menu():
         print("9. Mostrar boletim completo (Professor e Aluno)")
         print("0. Sair")
 definir_menu("Digite o número da opção desejada: ")
-funçãos = input().strip()
+funçãos = input("Digite o número da opção desejada: ").strip()
 if funçãos in lista_opcoes:
  if funçãos == "1":
             cadastrar_aluno("Digite seu nome:  ", "Digite sua idade em números:  ", "Digite o numero da sua turma:  ")
@@ -691,7 +691,7 @@ elif funçãos == "2":
             listar_alunos("Digite o número da opção desejada: ")
 
 elif funçãos == "3":
-            editar_aluno("digite o ID do aluno que você quer editar: \n", "Digite o novo nome do aluno (reescreva o nome caso queira mante-lo)\n:", "digite a nova idade do aluno (redigite a idade caso queira mante-la)\n:", "digite o numero da nova turma (redigite o número caso queira mante-lo): \n")
+            editar_aluno("digite o ID do aluno que você quer editar: \n","Digite o novo nome do aluno(reescreva o nome caso queira mante-lo)\n:","digite a nova idade do aluno(redigite a idade caso queira mante-la)\n:","digite o numero da nova turma(redigite o número caso queira mante-lo):\n")    
 
 elif funçãos == "4":
             excluir_aluno("digite o ID do aluno que você quer excluir: \n")
