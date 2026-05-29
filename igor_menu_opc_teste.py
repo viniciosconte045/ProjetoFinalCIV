@@ -631,7 +631,7 @@ else:
             print("Digite o número da opção desejada: ")
             funçãos = input("Digite o número da opção desejada: ").strip("Digite o número da opção desejada: ")
 "Opção inválida, tente novamente.\n"
-definir_menu()
+definir_menu("Digite o número da opção desejada: ")
 
 funçãos = input("Digite o número da opção desejada: ").strip()
 if funçãos in lista_opcoes:
@@ -668,7 +668,7 @@ if funçãos in lista_opcoes:
             print("Saindo do programa...")
             definir_menu()
   #definir_menu() #função do menu, onde todos tem o mesmo menu       
-def  definir_menu():
+def  definir_menu(mensagem):
         menu = "menu de administração de alunos e notas"
         print(menu)
         print("1. Cadastrar aluno (Administrador)")
