@@ -561,7 +561,8 @@ menu = "menu de administração de alunos e notas" \
 print(menu)
 oft = input("Digite o número da opção desejada: ").strip()
 if oft in lista_opcoes:
-     if oft == "1":
+     for opcao in lista_opcoes:
+      if oft == "1":
         cadastrar_aluno("Digite seu nome:  ", "Digite sua idade em números:  ", "Digite o numero da sua turma:  ")
     
 elif oft == "2":
@@ -597,7 +598,8 @@ else:    print("Opção inválida, tente novamente.\n")
 funçãos = input("Digite o número da opção desejada: ").strip()
 lista_opcoes = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 if funçãos in lista_opcoes:
- if funçãos == "1":
+ for opcao in lista_opcoes:
+  if funçãos == "1":
             cadastrar_aluno("Digite seu nome:  ", "Digite sua idade em números:  ", "Digite o numero da sua turma:  ")
     
 elif funçãos == "2":
@@ -637,41 +639,41 @@ definir_menu("Digite o número da opção desejada: ")
 
 funçãos = input("Digite o número da opção desejada: ").strip()
 if funçãos in lista_opcoes:
-        if funçãos == "1":
-            cadastrar_aluno("Digite seu nome:  ", "Digite sua idade em números:  ", "Digite o numero da sua turma:  ")
-        
-        elif funçãos == "2":
-            listar_alunos("Digite o número da opção desejada: ")
+        for opcao in lista_opcoes:
+         if funçãos == "1":
+                cadastrar_aluno("Digite seu nome:  ", "Digite sua idade em números:  ", "Digite o numero da sua turma:  ")
 
-        elif funçãos == "3":
+         elif funçãos == "2":
+                listar_alunos("Digite o número da opção desejada: ")
+         elif funçãos == "3":
             editar_aluno("digite o ID do aluno que você quer editar: \n","Digite o novo nome do aluno(reescreva o nome caso queira mante-lo)\n:","digite a nova idade do aluno(redigite a idade caso queira mante-la)\n:","digite o numero da nova turma(redigite o número caso queira mante-lo):\n")
 
-        elif funçãos == "4":
+         elif funçãos == "4":
             excluir_aluno("digite o ID do aluno que você quer excluir: \n")
 
-        elif funçãos == "5":
+         elif funçãos == "5":
             adicionar_nota("Digite a nota: ")
 
-        elif funçãos == "6":
+         elif funçãos == "6":
             remover_nota("Digite a nota que deseja remover: ")
 
-        elif funçãos == "7":
+         elif funçãos == "7":
             media = calcular_media("Digite o número da opção desejada: ")
             print(f"A média do aluno é: {media:.2f}\n")
 
-        elif funçãos == "8":
+         elif funçãos == "8":
             status = verificar_status("Digite o número da opção desejada:")
             print(f"A situação do aluno é: {status}\n")
 
-        elif funçãos == "9":
+         elif funçãos == "9":
             mostrar_boletim("Digite o número da opção desejada: ")
 
-        elif funçãos == "0":
+         elif funçãos == "0":
             print("Saindo do programa...")
             definir_menu()
-  #definir_menu() #função do menu, onde todos tem o mesmo menu       
-def  definir_menu(mensagem):
-        menu = "menu de administração de alunos e notas"
+ #definir_menu() #função do menu, onde todos tem o mesmo menu       
+        def  definir_menu(mensagem):
+         menu = "menu de administração de alunos e notas"
         print(menu)
         print("1. Cadastrar aluno (Administrador)")
         print("2. Listar alunos (Administrador e Professor)")
@@ -686,7 +688,8 @@ def  definir_menu(mensagem):
 definir_menu("Digite o número da opção desejada: ")
 funçãos = input("Digite o número da opção desejada: ").strip("Digite o número da opção desejada: ")
 if funçãos in lista_opcoes:
- if funçãos == "1":
+ for opcao in lista_opcoes:
+    if funçãos == "1":
             cadastrar_aluno("Digite seu nome:  ", "Digite sua idade em números:  ", "Digite o numero da sua turma:  ")
 
 elif funçãos == "2":
@@ -722,4 +725,6 @@ else:
             definir_menu("Digite o número da opção desejada: ")
             print("Digite o número da opção desejada: ")
             funçãos = input().strip("Digite o número da opção desejada:")
+            lupen = "Opção inválida, tente novamente.\n"
+            print(lupen)
 # siquier mudar vique avontade o codico.
