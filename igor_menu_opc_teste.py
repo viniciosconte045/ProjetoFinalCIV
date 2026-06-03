@@ -736,5 +736,11 @@ else:
             media = "calcular média do aluno" \
             "Digite o número da opção desejada: " \
             "Opção inválida, tente novamente.\n" \
-            "verificar situação do aluno" 
+            "verificar situação do aluno"
+            print(media)
+            bolintni = "mostrar boletim completo do aluno" \
+            "Digite o número da opção desejada: " \
+            "Opção inválida, tente novamente.\n"
+            print(bolintni)
+             
 # siquier mudar vique avontade o codico.
