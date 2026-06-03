@@ -727,4 +727,14 @@ else:
             funçãos = input().strip("Digite o número da opção desejada:")
             lupen = "Opção inválida, tente novamente.\n"
             print(lupen)
+            calcular_media()
+            verificar_status()
+            media = calcular_media()
+            print(f"A média do aluno é: {media:.2f}\n")
+            status = verificar_status()
+            print(f"A situação do aluno é: {status}\n")
+            media = "calcular média do aluno" \
+            "Digite o número da opção desejada: " \
+            "Opção inválida, tente novamente.\n" \
+            "verificar situação do aluno" 
 # siquier mudar vique avontade o codico.
