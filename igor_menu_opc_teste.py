@@ -534,6 +534,8 @@ for opcao in lista_opcoes:
 
     def definir_menu(mensagem):
         menu = "menu de administração de alunos e notas" 
+        for notas in menu.split("\n"):
+            print(notas)
         print(menu)
         print("1. Cadastrar aluno (Administrador)")
         print("2. Listar alunos (Administrador e Professor)")
