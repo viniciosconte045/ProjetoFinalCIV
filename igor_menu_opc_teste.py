@@ -254,7 +254,13 @@ def mostrar_boletim(): #função do professor e do aluno
  # fim do codigo
  # acho q ficou bom 👍
 
- #definir_menu() #função do menu, onde todos tem o mesmo menu       
+ #definir_menu() #função do menu, onde todos tem o mesmo menu
+def definir_menu():
+     
+    while True: 
+        
+     print("\n======== MENU ========")       
+      
 menu = "menu de administração de alunos e notas"
 print(menu)
 print("1. Cadastrar aluno (Administrador)")
@@ -267,6 +273,8 @@ print("7. Calcular média (Aluno)")
 print("8. Verificar situação do aluno (Professor e Aluno)")
 print("9. Mostrar boletim completo (Professor e Aluno)")
 print("0. Sair")
+
+opcao = input("Digite o número da opção desejada: ").strip()
 
 definir_menu("Digite o número da opção desejada: ")
 funçãos = input("Digite o número da opção desejada: ").strip("Digite o número da opção desejada: ")
