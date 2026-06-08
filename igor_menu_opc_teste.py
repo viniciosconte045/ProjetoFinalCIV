@@ -336,8 +336,6 @@ else:
             "\n9. Mostrar boletim completo (Professor e Aluno)"
             "\n0. Sair"
             print(menu_do_bolintni)
-        
-            
 
 
 # siquier mudar vique avontade o codico.
