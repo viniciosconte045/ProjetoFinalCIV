@@ -346,6 +346,8 @@ else:
             "\n9. Mostrar boletim completo (Professor e Aluno)"
             "\n0. Sair"
             print(menu_do_bolintni)
+            calcular_media()
+            verificar_status()
 
 
 # siquier mudar vique avontade o codico.
