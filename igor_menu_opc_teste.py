@@ -269,8 +269,8 @@ print("9. Mostrar boletim completo (Professor e Aluno)")
 print("0. Sair")
 definir_menu("Digite o número da opção desejada: ")
 funçãos = input("Digite o número da opção desejada: ").strip("Digite o número da opção desejada: ")
-if funçãos in lista_opcoes:
- for opcao in lista_opcoes:
+if funçãos in definir_menu:
+ for opcao in definir_menu:
     if funçãos == "1":
             cadastrar_aluno("Digite seu nome:  ", "Digite sua idade em números:  ", "Digite o numero da sua turma:  ")
 
@@ -336,6 +336,9 @@ else:
             "\n9. Mostrar boletim completo (Professor e Aluno)"
             "\n0. Sair"
             print(menu_do_bolintni)
+        
+            
+
 
 # siquier mudar vique avontade o codico.
 # e so um teste si tiver serto siquiser copie ou si tiver errado mude tudo vique a vontade asinado igor.
