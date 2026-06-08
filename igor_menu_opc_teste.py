@@ -267,6 +267,7 @@ print("7. Calcular média (Aluno)")
 print("8. Verificar situação do aluno (Professor e Aluno)")
 print("9. Mostrar boletim completo (Professor e Aluno)")
 print("0. Sair")
+
 definir_menu("Digite o número da opção desejada: ")
 funçãos = input("Digite o número da opção desejada: ").strip("Digite o número da opção desejada: ")
 if funçãos in definir_menu:
