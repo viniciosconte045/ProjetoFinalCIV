@@ -347,6 +347,7 @@ else:
             "\n0. Sair"
             print(menu_do_bolintni)
 
+
 # siquier mudar vique avontade o codico.
 # e so um teste si tiver serto siquiser copie ou si tiver errado mude tudo vique a vontade asinado igor.
 # #sitiver no ps5 ou ps4 ou no nitendo o couquer jogo que eu jogo esqueci na steam eu mijamo igor-junio ou igor-junio2010 ou igorjunio 
