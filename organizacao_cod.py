@@ -38,15 +38,46 @@ def cadastrar_aluno():
     elif not idade.isdigit() or int(idade) <= 0:
         print("idade deve ser um número valido\n")
 
+   
     else:
-        cursor.execute(
-            "INSERT INTO alunos (nome, idade, turma) VALUES (%s, %s, %s)",
-            (nome, int(idade), turmas[opcao_turma])
-        )
+            if opcao_turma == "1":
+                 cursor.execute(
+                "INSERT INTO 1° EM DS (nome, idade) VALUES (%s, %s)",
+                (nome, int(idade))
+                )
 
-        conexao.commit()
+            elif opcao_turma == "2":
+                cursor.execute(
+                "INSERT INTO 1° EM Multimídia (nome, idade) VALUES (%s, %s)",
+                (nome, int(idade))
+                )
 
-        print("Aluno cadastrado\n")
+            elif opcao_turma == "3":
+                cursor.execute(
+                "INSERT INTO 1° EM Jogos Digitais (nome, idade) VALUES (%s, %s)",
+                (nome, int(idade))
+                )
+              
+            elif opcao_turma == "4":
+                cursor.execute(
+                "INSERT INTO 2° EM Multimídia (nome, idade) VALUES (%s, %s)",
+                (nome, int(idade))
+                )
+
+            elif opcao_turma == "5":
+                cursor.execute(
+                "INSERT INTO 2° EM Jogos Digitais (nome, idade) VALUES (%s, %s)",
+                (nome, int(idade))
+                )
+            elif opcao_turma == "6":
+                cursor.execute(
+                "INSERT INTO 3° EM Jogos Digitais (nome, idade) VALUES (%s, %s)",
+                (nome, int(idade))
+                )
+
+    conexao.commit()
+
+    print("Aluno cadastrado\n")
 
     cursor.close()
 
