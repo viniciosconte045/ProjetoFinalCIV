@@ -129,8 +129,7 @@ def editar_aluno(): #função do administrador
                 conexao.commit()
 
                 print("Aluno atualizado\n")
-
-
+                
         else:
             print("Aluno não encontrado\n")
 
