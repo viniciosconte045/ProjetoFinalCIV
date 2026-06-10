@@ -57,9 +57,27 @@ def listar_alunos():
 
     cursor = conexao.cursor()
 
-    turma_selecionada = input("\nQual turma você quer listar? \n Opções de turma: \n 1: 1° EM DS \n 2: 1° EM multimídia \n 3: 1° EM Jogos Digitais \n 4: 2° EM Multimídia \n 5: 2° EM Jogos digitais \n 6: 3° EM Jogos Digitais \n").strip()
+    turma_selecionada = input("\nQual turma você quer listar? \n Opções de turma: \n 1: 1° EM DS \n 2: 1° EM Multimídia \n 3: 1° EM Jogos Digitais \n 4: 2° EM Multimídia \n 5: 2° EM Jogos Digitais \n 6: 3° EM Jogos Digitais \n").strip()
 
-    cursor.execute("SELECT * FROM alunos WHERE turma = %s", (turma_selecionada,))
+    turmas = {
+        "1": "1° EM DS",
+        "2": "1° EM Multimídia",
+        "3": "1° EM Jogos Digitais",
+        "4": "2° EM Multimídia",
+        "5": "2° EM Jogos Digitais",
+        "6": "3° EM Jogos Digitais"
+    }
+
+    if turma_selecionada not in turmas:
+        print("Turma inválida\n")
+        cursor.close()
+        conexao.close()
+        return
+
+    cursor.execute(
+        "SELECT * FROM alunos WHERE turma = %s",
+        (turmas[turma_selecionada],)
+    )
 
     alunos = cursor.fetchall()
 
@@ -88,6 +106,13 @@ def editar_aluno():
     "5": "2° EM Jogos Digitais",
     "6": "3° EM Jogos Digitais"
 }
+
+    cursor.execute("SELECT id_aluno, nome FROM alunos")
+
+    alunos = cursor.fetchall()
+
+    for aluno in alunos:
+        print(f"ID: {aluno[0]} - Nome: {aluno[1]}")
 
     id_aluno = input("digite o ID do aluno que você quer editar: \n").strip()
 
@@ -145,6 +170,13 @@ def excluir_aluno(): #ultima parte que eu venécios terei que fazer
 
     cursor = conexao.cursor()
 
+    cursor.execute("SELECT id_aluno, nome FROM alunos")
+
+    alunos = cursor.fetchall()
+
+    for aluno in alunos:
+        print(f"ID: {aluno[0]} - Nome: {aluno[1]}")
+
     id_aluno = input("digite o ID do aluno que você quer excluir: \n").strip()
 
     if not id_aluno.isdigit():
@@ -179,10 +211,20 @@ def adicionar_nota():
 
     id_aluno = input("Digite o ID do aluno: ").strip()
 
+    cursor.execute(
+        "SELECT * FROM alunos WHERE id_aluno = %s",
+        (id_aluno,)
+    )
+
+    aluno = cursor.fetchone()
+
     nota = input("Digite a nota: ").strip()
 
     if not id_aluno.isdigit():
         print("ID inválido\n")
+
+    elif not aluno:
+        print("Aluno não encontrado\n")
 
     elif not nota.replace(".", "", 1).isdigit():
         print("Nota inválida\n")
@@ -213,20 +255,30 @@ def remover_nota():
 
     id_nota = input("Digite o ID da nota que deseja remover: ").strip()
 
+    cursor.execute(
+        "SELECT * FROM notas WHERE id_nota = %s",
+        (id_nota,)
+    )
+
+    nota = cursor.fetchone()
+
     if not id_nota.isdigit():
         print("ID inválido\n")
+
+    elif not nota:
+        print("Nota não encontrada\n")
 
     else:
 
         cursor.execute(
             "DELETE FROM notas WHERE id_nota = %s",
-            (id_nota,)
-        )
+        (id_nota,)
+    )
 
         conexao.commit()
-
         print("Nota removida com sucesso\n")
 
+    
     cursor.close()
     conexao.close()
 
@@ -238,14 +290,22 @@ def calcular_media():
 
     id_aluno = input("Digite o ID do aluno: ").strip()
 
+    if not id_aluno.isdigit():
+        print("ID inválido")
+        cursor.close()
+        conexao.close()
+        return 0
+
+
     cursor.execute(
-        "SELECT AVG(nota) FROM notas WHERE id_aluno = %s",
+        "SELECT * FROM alunos WHERE id_aluno = %s",
         (id_aluno,)
     )
 
     media = cursor.fetchone()[0]
 
     cursor.close()
+    
     conexao.close()
 
     if media is None:
@@ -275,6 +335,27 @@ def mostrar_boletim():
     cursor = conexao.cursor()
 
     id_aluno = input("Digite o ID do aluno: ").strip()
+
+    if not id_aluno.isdigit():
+        print("ID inválido\n")
+        cursor.close()
+        conexao.close()
+        return
+
+
+    cursor.execute(
+        "SELECT * FROM alunos WHERE id_aluno = %s",
+    (id_aluno,)
+)
+
+    aluno = cursor.fetchone()
+
+    if not aluno:
+        print("Aluno não encontrado")
+        cursor.close()
+        conexao.close()
+        return
+
 
     cursor.execute(
         "SELECT nota FROM notas WHERE id_aluno = %s",
@@ -433,13 +514,27 @@ def menus():
 
     while True:
 
-        tipo = login()
+        print("\n===== SISTEMA ESCOLAR =====")
+        print("1 - Fazer login")
+        print("2 - Sair")
 
-        if tipo == "admin":
-            menu_adm()
+        escolha = input("Escolha uma opção: ").strip()
 
-        elif tipo == "professor":
-            menu_professor()
+        if escolha == "1":
 
 
+            tipo = login()
+
+            if tipo == "admin":
+                menu_adm()
+
+            elif tipo == "professor":
+                menu_professor()
+            
+        elif escolha == "2":
+            print("Programa encerrado")
+            break
+
+        else:
+            print("Opção inválida")
 menus()
