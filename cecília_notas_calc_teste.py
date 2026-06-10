@@ -222,7 +222,7 @@ def calcular_media():
     media = soma_notas / len(notas_aluno)
 
     return media
-
+  
 
 # verificar situação do aluno
 def verificar_status():
