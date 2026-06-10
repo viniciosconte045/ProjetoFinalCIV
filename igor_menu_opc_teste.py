@@ -256,7 +256,7 @@ def mostrar_boletim(): #função do professor e do aluno
  #definir_menu() #função do menu, onde todos tem o mesmo menu
 def definir_menu():
      
-    while True: 
+    while True:
         
      print("\n======== MENU ========")       
       
