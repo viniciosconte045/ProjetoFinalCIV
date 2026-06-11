@@ -354,10 +354,9 @@ else:
                             print("Opção inválida, tente novamente.\n")
                             menu_professor("Escolha uma opção: ")
                             print("Escolha uma opção: ")
-
-            def menus():
-             while True:
-                print("\n======== SISTEMA ESCOLAR ========")
+                def menus():
+                 while True:
+                  print("\n======== SISTEMA ESCOLAR ========")
 
                 print("1. Menu do Administrador")
                 print("2. Menu do Professor")
@@ -370,9 +369,10 @@ else:
                     menu_professor()
                 elif opcao == "0":
                     print("Saindo do programa...")
-                    break
                 else:
-                    print("Opção inválida, tente novamente.\n")     
+                    print("Opção inválida, tente novamente.\n")
+                    menus("Escolha uma opção: ")
+                    print("Escolha uma opção: ")
              
 
 # siquier mudar vique avontade o codico.
