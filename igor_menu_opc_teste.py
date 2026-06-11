@@ -315,64 +315,66 @@ else:
             print("Escolha uma opção: ")
 
 
-def menu_professor():
+            def menu_professor():
 
- while True:
+             while True:
                       
-  print("\n======== MENU ========")
+              print("\n======== MENU ========")
             
-print("1. Listar alunos (Administrador e Professor)")
-print("2. Adicionar nota (Professor)")
-print("3. Remover nota (Professor)")
-print("4. Verificar situação do aluno (Professor e Aluno)")
-print("5. Mostrar boletim completo (Professor e Aluno)")
-print("0. Sair")
-opcao = input("Escolha uma opção: ").strip()
-menu_professor("Escolha uma opção: ")
-funçãos = input("Escolha uma opção: ").strip()
-if funçãos in menu_professor:
- for opcao in menu_professor:
-    if funçãos == "1":
-     listar_alunos("Digite o número da opção desejada: ")
+              print("1. Listar alunos (Administrador e Professor)")
+              print("2. Adicionar nota (Professor)")
+              print("3. Remover nota (Professor)")
+              print("4. Verificar situação do aluno (Professor e Aluno)")
+              print("5. Mostrar boletim completo (Professor e Aluno)")
+              print("0. Sair")
+            opcao = input("Escolha uma opção: ").strip()
+            menu_professor("Escolha uma opção: ")
+            funçãos = input("Escolha uma opção: ").strip()
+            if funçãos in menu_professor:
+             for opcao in menu_professor:
+              if funçãos == "1":
+               listar_alunos("Digite o número da opção desejada: ")
     
-elif funçãos == "2":
- adicionar_nota("Digite a nota: ")
+            elif funçãos == "2":
+               adicionar_nota("Digite a nota: ")
     
-elif funçãos == "3":
- remover_nota("Digite a nota que deseja remover: ")
+            elif funçãos == "3":
+             remover_nota("Digite a nota que deseja remover: ")
     
-elif funçãos == "4":
- status = verificar_status("Digite o número da opção desejada:")
- print(f"A situação do aluno é: {status}\n")
+            elif funçãos == "4":
+             status = verificar_status("Digite o número da opção desejada:")
+            print(f"A situação do aluno é: {status}\n")
+            
+            elif funçãos == "5":
+            mostrar_boletim("Escolha uma opção: ")
     
-elif funçãos == "5":
- mostrar_boletim("Escolha uma opção: ")
-    
-elif funçãos == "0":
- print("Saindo do programa...") 
-else:
- print("Opção inválida, tente novamente.\n")
- menu_professor("Escolha uma opção: ")
- print("Escolha uma opção: ")
-def menus():
- while True:
-  print("\n======== SISTEMA ESCOLAR ========")
+            elif funçãos == "0":
+            print("Saindo do programa...") 
 
-print("1. Menu do Administrador")
-print("2. Menu do Professor")
-print("0. Sair")
-opcao = input("Escolha uma opção: ").strip()
+            else:
+            print("Opção inválida, tente novamente.\n")
+            menu_professor("Escolha uma opção: ")
+            print("Escolha uma opção: ")
+            
+            def menus():
+             while True:
+              print("\n======== SISTEMA ESCOLAR ========")
 
-if opcao == "1":
- menu_professor()
-elif opcao == "2":
- menu_professor()
-elif opcao == "0":
- print("Saindo do programa...")
-else:
- print("Opção inválida, tente novamente.\n")
- menus("Escolha uma opção: ")
- print("Escolha uma opção: ")
+            print("1. Menu do Administrador")
+            print("2. Menu do Professor")
+            print("0. Sair")
+            opcao = input("Escolha uma opção: ").strip()
+
+            if opcao == "1":
+             menu_professor()
+            elif opcao == "2":
+             menu_professor()
+            elif opcao == "0":
+             print("Saindo do programa...")
+            else:
+             print("Opção inválida, tente novamente.\n")
+             menus("Escolha uma opção: ")
+            print("Escolha uma opção: ")
              
 
 # siquier mudar vique avontade o codico.
