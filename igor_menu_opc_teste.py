@@ -356,9 +356,10 @@ else:
                             menu_professor("Escolha uma opção: ")
                             print("Escolha uma opção: ")
 
-           def menus()
-            while True:
-                print("\n======== MENU PRINCIPAL ========")
+            def menus():
+             while True:
+                print("\n======== SISTEMA ESCOLAR ========")
+
                 print("1. Menu do Administrador")
                 print("2. Menu do Professor")
                 print("0. Sair")
@@ -374,8 +375,6 @@ else:
                 else:
                     print("Opção inválida, tente novamente.\n")     
              
-
-
 
 # siquier mudar vique avontade o codico.
 # e so um teste si tiver serto siquiser copie ou si tiver errado mude tudo vique a vontade asinado igor. 
