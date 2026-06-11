@@ -57,7 +57,7 @@ def listar_alunos():
 
     cursor = conexao.cursor()
 
-    turma_selecionada = input("\nQual turma você quer listar? \n Opções de turma: \n 1: 1° EM DS \n 2: 1° EM Multimídia \n 3: 1° EM Jogos Digitais \n 4: 2° EM Multimídia \n 5: 2° EM Jogos Digitais \n 6: 3° EM Jogos Digitais \n").strip()
+    turma_selecionada = input("\nQual turma você quer listar? \n Opções de turma: \n 1: 1° EM DS \n 2: 1° EM Multimídia \n 3: 1° EM Jogos Digitais \n 4: 2° EM Multimídia \n 5: 2° EM Jogos Digitais \n 6: 3° EM Jogos Digitais\n").strip()
 
     turmas = {
         "1": "1° EM DS",
@@ -82,10 +82,10 @@ def listar_alunos():
     alunos = cursor.fetchall()
 
     if len(alunos) == 0:
-        print("Nenhum aluno cadastrado\n")
+        print("\nNenhum aluno cadastrado\n")
     
     for aluno in alunos:
-        print(f"\nID: {aluno[0]}, Nome: {aluno[1]}, Idade: {aluno[2]}, Turma: {aluno[3]}\n")
+        print(f"\nID: {aluno[0]},    Nome: {aluno[1]},    Idade: {aluno[2]},   Turma: {aluno[3]}\n")
 
     cursor.close()
 
