@@ -253,7 +253,7 @@ def mostrar_boletim(): #função do professor e do aluno
  # fim do codigo
  # acho q ficou bom 👍
  #definir_menu() #função do menu, onde todos tem o mesmo menu
-    def menu_escolar():
+def menu_escolar():
      
      while True:
         
