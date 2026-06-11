@@ -263,7 +263,6 @@ def remover_nota():
     if not id_nota.isdigit():
         print("ID inválido\n")
 
-
     cursor.execute(
         "SELECT * FROM notas WHERE id_nota = %s",
         (id_nota,)
@@ -271,10 +270,8 @@ def remover_nota():
 
     nota = cursor.fetchone()
 
-    if not id_nota.isdigit():
-        print("ID inválido\n")
 
-    elif not nota:
+    if not nota:
         print("Nota não encontrada\n")
 
     else:
