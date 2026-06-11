@@ -210,20 +210,25 @@ def adicionar_nota():
     cursor = conexao.cursor()
 
     id_aluno = input("Digite o ID do aluno: ").strip()
-
-    cursor.execute(
-        "SELECT * FROM alunos WHERE id_aluno = %s",
-        (id_aluno,)
+    
+    if not id_aluno.isdigit():
+        print("ID inválido\n")
+        cursor.close()
+        conexao.close()
+        return
+        
+    else: 
+    
+        cursor.execute(
+            "SELECT * FROM alunos WHERE id_aluno = %s",
+            (id_aluno,)
     )
 
     aluno = cursor.fetchone()
 
     nota = input("Digite a nota: ").strip()
 
-    if not id_aluno.isdigit():
-        print("ID inválido\n")
-
-    elif not aluno:
+    if not aluno:
         print("Aluno não encontrado\n")
 
     elif not nota.replace(".", "", 1).isdigit():
@@ -254,6 +259,10 @@ def remover_nota():
     cursor = conexao.cursor()
 
     id_nota = input("Digite o ID da nota que deseja remover: ").strip()
+
+    if not id_nota.isdigit():
+        print("ID inválido\n")
+
 
     cursor.execute(
         "SELECT * FROM notas WHERE id_nota = %s",
@@ -298,11 +307,19 @@ def calcular_media():
 
 
     cursor.execute(
-        "SELECT * FROM alunos WHERE id_aluno = %s",
+        "SELECT AVG(nota) FROM notas WHERE id_aluno = %s",
         (id_aluno,)
     )
 
-    media = cursor.fetchone()[0]
+
+    resultado = cursor.fetchone()
+
+    if resultado is None or resultado[0] is None:
+        cursor.close()
+        conexao.close()
+        return 0
+
+    media = resultado[0]
 
     cursor.close()
     
@@ -463,7 +480,7 @@ def menu_adm():
             excluir_aluno()
 
         elif opcao == "5":
-            print("Programa encerrado")
+            print("voltando ao login")
             break
 
         else:
