@@ -5,7 +5,7 @@ def conectar():
         host="127.0.0.1",
         user="root",
         password="Senac2026",
-        database="escola_dv"
+        database="escola_db"
     )
 
 def cadastrar_aluno():
