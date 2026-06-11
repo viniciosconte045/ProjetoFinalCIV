@@ -259,8 +259,7 @@ def menu_escolar():
         
       print("\n======== MENU ========")       
       
-menu = "menu de administração de alunos e notas"
-print(menu)
+print("Bem-vindo ao sistema escolar! Escolha uma opção: \n")
 print("1. Cadastrar aluno (Administrador)")
 print("2. Listar alunos (Administrador e Professor)")
 print("3. Editar aluno (Administrador)")
