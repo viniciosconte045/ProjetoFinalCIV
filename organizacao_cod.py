@@ -75,7 +75,7 @@ def listar_alunos():
         return
 
     cursor.execute(
-        "SELECT * FROM alunos WHERE turma = %s",
+        "SELECT * FROM alunos WHERE turma = %s ORDER BY nome",
         (turmas[turma_selecionada],)
     )
 
@@ -107,12 +107,7 @@ def editar_aluno():
     "6": "3° EM Jogos Digitais"
 }
 
-    cursor.execute("SELECT id_aluno, nome FROM alunos")
-
-    alunos = cursor.fetchall()
-
-    for aluno in alunos:
-        print(f"ID: {aluno[0]} - Nome: {aluno[1]}")
+    listar_alunos()
 
     id_aluno = input("digite o ID do aluno que você quer editar: \n").strip()
 
@@ -170,12 +165,7 @@ def excluir_aluno(): #ultima parte que eu venécios terei que fazer
 
     cursor = conexao.cursor()
 
-    cursor.execute("SELECT id_aluno, nome FROM alunos")
-
-    alunos = cursor.fetchall()
-
-    for aluno in alunos:
-        print(f"ID: {aluno[0]} - Nome: {aluno[1]}")
+    listar_alunos()
 
     id_aluno = input("digite o ID do aluno que você quer excluir: \n").strip()
 
@@ -208,6 +198,8 @@ def adicionar_nota():
 
     conexao = conectar()
     cursor = conexao.cursor()
+
+    listar_alunos()
 
     id_aluno = input("Digite o ID do aluno: ").strip()
     
@@ -255,6 +247,8 @@ def adicionar_nota():
 
 def remover_nota():
 
+    listar_alunos()
+
     conexao = conectar()
     cursor = conexao.cursor()
 
@@ -293,6 +287,8 @@ def calcular_media():
 
     conexao = conectar()
     cursor = conexao.cursor()
+
+    listar_alunos()
 
     id_aluno = input("Digite o ID do aluno: ").strip()
 
@@ -347,6 +343,8 @@ def mostrar_boletim():
 
     conexao = conectar()
     cursor = conexao.cursor()
+
+    listar_alunos()
 
     id_aluno = input("Digite o ID do aluno: ").strip()
 
