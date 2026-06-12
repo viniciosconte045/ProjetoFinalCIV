@@ -218,7 +218,7 @@ def adicionar_nota():
 
     aluno = cursor.fetchone()
 
-    nota = input("Digite a nota: ").strip()
+    nota = input("Digite a nota: ").strip().replace(",", ".")
 
     if not aluno:
         print("Aluno não encontrado\n")
@@ -247,15 +247,42 @@ def adicionar_nota():
 
 def remover_nota():
 
-    listar_alunos()
-
     conexao = conectar()
     cursor = conexao.cursor()
+
+    listar_alunos()
+
+    id_aluno = input("Digite o ID do aluno: ").strip()
+
+    if not id_aluno.isdigit():
+        print("ID inválido\n")
+        cursor.close()
+        conexao.close()
+        return
+
+    cursor.execute(
+    "SELECT id_nota, nota FROM notas WHERE id_aluno = %s",
+    (id_aluno,)
+    )
+
+    notas = cursor.fetchall()
+
+    if len(notas) == 0:
+        print("Esse aluno não possui notas cadastradas\n")
+        cursor.close()
+        conexao.close()
+        return
+
+    for nota in notas:
+        print(f"ID da Nota: {nota[0]} - Nota: {nota[1]}")
 
     id_nota = input("Digite o ID da nota que deseja remover: ").strip()
 
     if not id_nota.isdigit():
         print("ID inválido\n")
+        cursor.close()
+        conexao.close()
+        return
 
     cursor.execute(
         "SELECT * FROM notas WHERE id_nota = %s",
