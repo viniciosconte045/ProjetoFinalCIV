@@ -568,6 +568,31 @@ def menus():
                 menu_adm()
 
             elif tipo == "professor":
+                def selecionar_turma():
+
+                    print("\nOpções de turma:")
+                    print("1 - 1° EM DS")
+                    print("2 - 1° EM Multimídia")
+                    print("3 - 1° EM Jogos Digitais")
+                    print("4 - 2° EM Multimídia")
+                    print("5 - 2° EM Jogos Digitais")
+                    print("6 - 3° EM Jogos Digitais")
+                    turmas = {
+                        "1": "1° EM DS",
+                        "2": "1° EM Multimídia",
+                        "3": "1° EM Jogos Digitais",
+                        "4": "2° EM Multimídia",
+                        "5": "2° EM Jogos Digitais",
+                        "6": "3° EM Jogos Digitais"
+                        }
+
+                    opcao = input("Escolha a turma: ").strip()
+
+                    if opcao in turmas:
+                        return turmas[opcao]
+
+                    print("Turma inválida")
+                    return None
                 menu_professor()
             
         elif escolha == "2":
