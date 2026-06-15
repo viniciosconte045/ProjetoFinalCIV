@@ -275,39 +275,39 @@ opcao = input("Escolha uma opção: ").strip()
 
 funçãos = input("Escolha uma opção: ").strip()
 for opcao in menu_escolar:
-     opcao in menu_escolar
-if funçãos == "1":
+
+ if funçãos == "1":
         cadastrar_aluno("Digite seu nome:","Digite sua idade em números:","Digite o numero da sua turma:\n")
 
-elif funçãos == "2":
+ elif funçãos == "2":
         listar_alunos("Digite o número da opção desejada:")
 
-elif funçãos == "3":
+ elif funçãos == "3":
         editar_aluno("digite o ID do aluno que você quer editar:\n","Digite o novo nome do aluno(reescreva o nome caso queira mante-lo)\n:","digite a nova idade do aluno(redigite a idade caso queira mante-la)\n:","digite o numero da nova turma(redigite o número caso queira mante-lo):\n")    
 
-elif funçãos == "4":
+ elif funçãos == "4":
         excluir_aluno("digite o ID do aluno que você quer excluir:\n")
 
-elif funçãos == "5":
+ elif funçãos == "5":
         adicionar_nota("Digite a nota:")
 
-elif funçãos == "6":
+ elif funçãos == "6":
         remover_nota("Digite a nota que deseja remover:")
 
-elif funçãos == "7":
+ elif funçãos == "7":
             media = calcular_media("Digite o número da opção desejada:")
             print(f"A média do aluno é: {media:.2f}\n")
 
-elif funçãos == "8":
+ elif funçãos == "8":
             status = verificar_status("Digite o número da opção desejada:")
             print(f"A situação do aluno é: {status}\n")
 
-elif funçãos == "9":
+ elif funçãos == "9":
             mostrar_boletim("Escolha uma opção:")
 
-elif funçãos == "0":
+ elif funçãos == "0":
             print("Saindo do programa...") 
-else:
+ else:
             print("Opção inválida, tente novamente.\n")
             ("Escolha uma opção: ")
             print("Escolha uma opção: ")
@@ -317,7 +317,7 @@ else:
 
              while True:
                       
-              print("\n======== MENU ========")
+              print("\n======== MENU_PROFESSOR ========")
             
               print("1. Listar alunos (Administrador e Professor)")
               print("2. Adicionar nota (Professor)")
@@ -325,11 +325,15 @@ else:
               print("4. Verificar situação do aluno (Professor e Aluno)")
               print("5. Mostrar boletim completo (Professor e Aluno)")
               print("0. Sair")
-            opcao = input("Escolha uma opção: ").strip()
-            menu_professor("Escolha uma opção: ")
-            funçãos = input("Escolha uma opção: ").strip()
+
+            opcao = input("Escolha uma opção:").strip()
+
+            menu_professor("Escolha uma opção:")
+
+            funçãos = input("Escolha uma opção:").strip()
             if funçãos in menu_professor:
-             for opcao in menu_professor:
+             for funçãos in menu_professor:
+
               if funçãos == "1":
                listar_alunos("Digite o número da opção desejada: ")
     
@@ -356,21 +360,23 @@ else:
             
             def menus():
              while True:
+              
               print("\n======== SISTEMA ESCOLAR ========")
 
             print("1. Menu do Administrador")
             print("2. Menu do Professor")
             print("0. Sair")
-            opcao = input("Escolha uma opção: ").strip()
 
-            if opcao == "1":
-             menu_professor()
-            elif opcao == "2":
-             menu_professor()
-            elif opcao == "0":
-             print("Saindo do programa...")
-            else:
-             print("Opção inválida, tente novamente.\n")
+            opcao = input("Escolha uma opção: ").strip()
+            for opcao in menus:
+             if opcao == "1":
+              menu_professor()
+             elif opcao == "2":
+              menu_professor()
+             elif opcao == "0":
+              print("Saindo do programa...")
+             else:
+              print("Opção inválida, tente novamente.\n")
              menus("Escolha uma opção: ")
             print("Escolha uma opção: ")
              
