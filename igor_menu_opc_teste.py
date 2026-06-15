@@ -334,40 +334,41 @@ else:
              for funçãos in menu_professor:
 
               if funçãos == "1":
-               listar_alunos("Digite o número da opção desejada: ")
+               listar_alunos("Digite o número da opção desejada:")
     
               elif funçãos == "2":
-               adicionar_nota("Digite a nota: ")
+               adicionar_nota("Digite a nota:")
     
               elif funçãos == "3":
-               remover_nota("Digite a nota que deseja remover: ")
+               remover_nota("Digite a nota que deseja remover:")
     
               elif funçãos == "4":
                status = verificar_status("Digite o número da opção desejada:")
                print(f"A situação do aluno é: {status}\n")
             
               elif funçãos == "5":
-               mostrar_boletim("Escolha uma opção: ")
+               mostrar_boletim("Escolha uma opção:")
     
               elif funçãos == "0":
                print("Saindo do programa...") 
 
               else:
                print("Opção inválida, tente novamente.\n")
-               menu_professor("Escolha uma opção: ")
-               print("Escolha uma opção: ")
+               menu_professor("Escolha uma opção:")
+               print("Escolha uma opção:")
             
             def menu_administrador():
              while True:menu_administrador()
               
-            print("\n======== SISTEMA ESCOLAR ========")
+            print("\n======== SISTEMA_ESCOLAR ========")
 
             print("1. Menu do Administrador")
             print("2. Menu do Professor")
             print("0. Sair")
 
             opcao = input("Escolha uma opção: ").strip()
-            for opcao in menus:opcoes = ["1", "2", "0"]
+            for opcao in menu_administrador:
+             opcoes = ["1", "2", "0"]
              
             if opcao == "1":
               menu_administrador()
@@ -380,7 +381,7 @@ else:
 
             else:
               print("Opção inválida, tente novamente.\n")
-            menus("Escolha uma opção: ")
+            menu_administrador("Escolha uma opção: ")
             print("Escolha uma opção: ")
              
 
