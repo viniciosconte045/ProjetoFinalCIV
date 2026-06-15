@@ -273,10 +273,10 @@ print("0. Sair")
 
 opcao = input("Escolha uma opção: ").strip()
 
-("Escolha uma opção: ")
+( "Escolha uma opção: ")
 funçãos = input("Escolha uma opção: ").strip()
 if funçãos in menu_escolar:
- for opcao in menu_escolar:
+  for opcao in menu_escolar:
     if funçãos == "1":
             cadastrar_aluno("Digite seu nome:  ", "Digite sua idade em números:  ", "Digite o numero da sua turma:  ")
 
