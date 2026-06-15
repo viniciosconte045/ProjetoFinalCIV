@@ -253,7 +253,7 @@ def mostrar_boletim(): #função do professor e do aluno
  # fim do codigo
  # acho q ficou bom 👍
  #definir_menu() #função do menu, onde todos tem o mesmo menu
-def menu_escolar():
+def definir_menu():
      
      while True:
         
@@ -275,10 +275,10 @@ opcao = input("Escolha uma opção: ").strip()
 
 ( "Escolha uma opção: ")
 funçãos = input("Escolha uma opção: ").strip()
-if funçãos in menu_escolar:
-  for opcao in menu_escolar:
+if funçãos in definir_menu:
+  for opcao in definir_menu:
     if funçãos == "1":
-        cadastrar_aluno("Digite seu nome:  ", "Digite sua idade em números:  ", "Digite o numero da sua turma:  ")
+        cadastrar_aluno()
 
 elif funçãos == "2":
         listar_alunos("Digite o número da opção desejada: ")
