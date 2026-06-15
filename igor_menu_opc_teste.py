@@ -258,8 +258,8 @@ def menu_escolar():
      while True:
         
       print("\n======== MENU ========")       
-      
 print("Bem-vindo ao sistema escolar! Escolha uma opção: \n")
+
 print("1. Cadastrar aluno (Administrador)")
 print("2. Listar alunos (Administrador e Professor)")
 print("3. Editar aluno (Administrador)")
@@ -278,22 +278,22 @@ funçãos = input("Escolha uma opção: ").strip()
 if funçãos in menu_escolar:
   for opcao in menu_escolar:
     if funçãos == "1":
-            cadastrar_aluno("Digite seu nome:  ", "Digite sua idade em números:  ", "Digite o numero da sua turma:  ")
+        cadastrar_aluno("Digite seu nome:  ", "Digite sua idade em números:  ", "Digite o numero da sua turma:  ")
 
 elif funçãos == "2":
-            listar_alunos("Digite o número da opção desejada: ")
+        listar_alunos("Digite o número da opção desejada: ")
 
 elif funçãos == "3":
-            editar_aluno("digite o ID do aluno que você quer editar: \n","Digite o novo nome do aluno(reescreva o nome caso queira mante-lo)\n:","digite a nova idade do aluno(redigite a idade caso queira mante-la)\n:","digite o numero da nova turma(redigite o número caso queira mante-lo):\n")    
+        editar_aluno("digite o ID do aluno que você quer editar: \n","Digite o novo nome do aluno(reescreva o nome caso queira mante-lo)\n:","digite a nova idade do aluno(redigite a idade caso queira mante-la)\n:","digite o numero da nova turma(redigite o número caso queira mante-lo):\n")    
 
 elif funçãos == "4":
-            excluir_aluno("digite o ID do aluno que você quer excluir: \n")
+        excluir_aluno("digite o ID do aluno que você quer excluir: \n")
 
 elif funçãos == "5":
-            adicionar_nota("Digite a nota: ")
+        adicionar_nota("Digite a nota: ")
 
 elif funçãos == "6":
-            remover_nota("Digite a nota que deseja remover: ")
+        remover_nota("Digite a nota que deseja remover: ")
 
 elif funçãos == "7":
             media = calcular_media("Digite o número da opção desejada: ")
@@ -379,3 +379,4 @@ else:
 # siquier mudar vique avontade o codico.
 # e so um teste si tiver serto siquiser copie ou si tiver errado mude tudo vique a vontade asinado igor. 
 #sitiver no ps5 ou ps4 ou no nitendo o couquer jogo que eu jogo esqueci na steam eu mijamo igor-junio ou igor-junio2010 ou igorjunio e no roblos e igorjunio2010hdhd mais nao jogo tanto.
+# estou presisando de ajuda no menu nao estar aparesendo nada para min a jo que bugiu ou eu jis augo de erado.
