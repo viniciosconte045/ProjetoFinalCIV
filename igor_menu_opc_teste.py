@@ -255,10 +255,10 @@ def mostrar_boletim(): #função do professor e do aluno
  #definir_menu() #função do menu, onde todos tem o mesmo menu
 def definir_menu():
 
- while True:
-  
-      print("\n======== MENU ========")       
-print("Bem-vindo ao sistema escolar! Escolha uma opção: \n")
+ while True: definir_menu()
+      
+print("\n======== MENU ========")       
+print("Bem-vindo ao sistema escolar! Escolha uma opção:\n")
 
 print("1. Cadastrar aluno (Administrador)")
 print("2. Listar alunos (Administrador e Professor)")
@@ -274,41 +274,41 @@ print("0. Sair")
 opcao = input("Escolha uma opção: ").strip()
 
 funçãos = input("Escolha uma opção: ").strip()
-for opcao in definir_menu:
 
- if funçãos == "1":
+
+if funçãos == "1":
         cadastrar_aluno("Digite seu nome:","Digite sua idade em números:","Digite o numero da sua turma:\n")
 
- elif funçãos == "2":
+elif funçãos == "2":
         listar_alunos("Digite o número da opção desejada:")
 
- elif funçãos == "3":
+elif funçãos == "3":
         editar_aluno("digite o ID do aluno que você quer editar:\n","Digite o novo nome do aluno(reescreva o nome caso queira mante-lo)\n:","digite a nova idade do aluno(redigite a idade caso queira mante-la)\n:","digite o numero da nova turma(redigite o número caso queira mante-lo):\n")    
 
- elif funçãos == "4":
+elif funçãos == "4":
         excluir_aluno("digite o ID do aluno que você quer excluir:\n")
 
- elif funçãos == "5":
+elif funçãos == "5":
         adicionar_nota("Digite a nota:")
 
- elif funçãos == "6":
+elif funçãos == "6":
         remover_nota("Digite a nota que deseja remover:")
 
- elif funçãos == "7":
+elif funçãos == "7":
             media = calcular_media("Digite o número da opção desejada:")
             print(f"A média do aluno é: {media:.2f}\n")
 
- elif funçãos == "8":
+elif funçãos == "8":
             status = verificar_status("Digite o número da opção desejada:")
             print(f"A situação do aluno é: {status}\n")
 
- elif funçãos == "9":
+elif funçãos == "9":
             mostrar_boletim("Escolha uma opção:")
 
- elif funçãos == "0":
+elif funçãos == "0":
             print("Saindo do programa...")
 
- else:
+else:
             print("Opção inválida, tente novamente.\n")
             ("Escolha uma opção: ")
             print("Escolha uma opção: ")
