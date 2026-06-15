@@ -329,8 +329,6 @@ else:
 
             opcao = input("Escolha uma opção:").strip()
 
-            menu_professor("Escolha uma opção:")
-
             funçãos = input("Escolha uma opção:").strip()
             if funçãos in menu_professor:
              for funçãos in menu_professor:
