@@ -8,7 +8,7 @@ def conectar():
         database="escola_db"
     )
 
-def cadastrar_aluno():
+def cadastrar_aluno(turma_atual):
     conexao = conectar()
 
     cursor = conexao.cursor()
@@ -18,19 +18,7 @@ def cadastrar_aluno():
     idade = input("Digite idade do aluno:  ").strip()
 
     print("\nOpções de turma: \n\n 1: 1° EM DS \n 2: 1° EM multimídia \n 3: 1° EM Jogos Digitais \n 4: 2° EM Multimídia \n 5: 2° EM Jogos digitais \n 6: 3° EM Jogos Digitais \n")
-    turmas = {
-
-        "1": "1° EM DS",
-        "2": "1° EM Multimídia",
-        "3": "1° EM Jogos Digitais",
-        "4": "2° EM Multimídia",
-        "5": "2° EM Jogos Digitais",
-        "6": "3° EM Jogos Digitais"
-    }
-    opcao_turma = input("Digite o numero da turma do aluno:  ").strip()
-
-    if opcao_turma not in turmas:
-        print("Turma inválida\n")
+)
 
     elif not nome.replace(" ", "").isalpha(): 
         print("Nome invalido\n")
@@ -52,33 +40,16 @@ def cadastrar_aluno():
 
     conexao.close()
 
-def listar_alunos():
+def listar_alunos(turma):
     conexao = conectar()
 
     cursor = conexao.cursor()
 
-    turma_selecionada = input("\nQual turma você quer listar? \n Opções de turma: \n 1: 1° EM DS \n 2: 1° EM Multimídia \n 3: 1° EM Jogos Digitais \n 4: 2° EM Multimídia \n 5: 2° EM Jogos Digitais \n 6: 3° EM Jogos Digitais\n").strip()
-
-    turmas = {
-        "1": "1° EM DS",
-        "2": "1° EM Multimídia",
-        "3": "1° EM Jogos Digitais",
-        "4": "2° EM Multimídia",
-        "5": "2° EM Jogos Digitais",
-        "6": "3° EM Jogos Digitais"
-    }
-
-    if turma_selecionada not in turmas:
-        print("Turma inválida\n")
-        cursor.close()
-        conexao.close()
-        return
-
     cursor.execute(
-        "SELECT * FROM alunos WHERE turma = %s ORDER BY nome",
-        (turmas[turma_selecionada],)
+    "SELECT * FROM alunos WHERE turma = %s ORDER BY nome",
+    (turma,)
     )
-
+    
     alunos = cursor.fetchall()
 
     if len(alunos) == 0:
@@ -91,7 +62,7 @@ def listar_alunos():
 
     conexao.close()
 
-def editar_aluno():
+def editar_aluno(turma_atual):
 
     conexao = conectar()
 
@@ -107,7 +78,7 @@ def editar_aluno():
     "6": "3° EM Jogos Digitais"
 }
 
-    listar_alunos()
+    listar_alunos(turma_atual)
 
     id_aluno = input("digite o ID do aluno que você quer editar: \n").strip()
 
@@ -160,12 +131,12 @@ def editar_aluno():
 
     conexao.close()
 
-def excluir_aluno(): #ultima parte que eu venécios terei que fazer
+def excluir_aluno(turma_atual): #ultima parte que eu venécios terei que fazer
     conexao = conectar()
 
     cursor = conexao.cursor()
 
-    listar_alunos()
+    listar_alunos(turma_atual)
 
     id_aluno = input("digite o ID do aluno que você quer excluir: \n").strip()
 
@@ -194,12 +165,12 @@ def excluir_aluno(): #ultima parte que eu venécios terei que fazer
 
 notas_aluno = []
 
-def adicionar_nota():
+def adicionar_nota(turma_atual):
 
     conexao = conectar()
     cursor = conexao.cursor()
 
-    listar_alunos()
+    listar_alunos(turma_atual)
 
     id_aluno = input("Digite o ID do aluno: ").strip()
     
@@ -245,12 +216,12 @@ def adicionar_nota():
 
 # remover nota
 
-def remover_nota():
+def remover_nota(turma_atual):
 
     conexao = conectar()
     cursor = conexao.cursor()
 
-    listar_alunos()
+    listar_alunos(turma_atual)
 
     id_aluno = input("Digite o ID do aluno: ").strip()
 
@@ -310,12 +281,12 @@ def remover_nota():
     conexao.close()
 
 # calcular média
-def calcular_media():
+def calcular_media(turma_atual):
 
     conexao = conectar()
     cursor = conexao.cursor()
 
-    listar_alunos()
+    listar_alunos(turma_atual)
 
     id_aluno = input("Digite o ID do aluno: ").strip()
 
@@ -351,9 +322,9 @@ def calcular_media():
     return round(media, 2)
 
 # verificar situação do aluno
-def verificar_status():
+def verificar_status(turma_atual):
 
-    media = calcular_media()
+    media = calcular_media(turma_atual)
 
     if media >= 7:
         return "Aprovado"
@@ -366,12 +337,12 @@ def verificar_status():
 
 
 # mostrar boletim completo
-def mostrar_boletim():
+def mostrar_boletim(turma_atual):
 
     conexao = conectar()
     cursor = conexao.cursor()
 
-    listar_alunos()
+    listar_alunos(turma_atual)
 
     id_aluno = input("Digite o ID do aluno: ").strip()
 
@@ -476,7 +447,7 @@ def login():
 
 
     
-def menu_adm():
+def menu_adm(turma_atual):
 
     while True:
 
@@ -485,30 +456,35 @@ def menu_adm():
         print("2 - Listar alunos")
         print("3 - Editar aluno")
         print("4 - Excluir aluno")
-        print("5 - Voltar ao login\n")
+        print("5 - Voltar à seleção de turmas")
+        print("6 - Voltar ao login\n")
 
         opcao = input("Escolha uma opção: ").strip()
 
         if opcao == "1":
-            cadastrar_aluno()
+            cadastrar_aluno(turma_atual)
 
         elif opcao == "2":
-                listar_alunos()
+            listar_alunos(turma_atual   )
 
         elif opcao == "3":
-            editar_aluno()
+            editar_aluno(turma_atual)
 
         elif opcao == "4":
-            excluir_aluno()
+            excluir_aluno(turma_atual)
 
         elif opcao == "5":
+            print("Voltando a seleção de turmas")
+            return
+
+        elif opcao == "6":
             print("voltando ao login")
             break
 
         else:
             print("Opção inválida")
 
-def menu_professor():
+def menu_professor(turma_atual):
 
     while True:
 
@@ -524,22 +500,22 @@ def menu_professor():
         opcao = input("Escolha uma opção: ").strip()
 
         if opcao == "1":
-                listar_alunos()
+            listar_alunos(turma_atual)
 
         elif opcao == "2":
-            adicionar_nota()
+            adicionar_nota(turma_atual)
 
         elif opcao == "3":
-            remover_nota()
+            remover_nota(turma_atual)
 
         elif opcao == "4":
-            print("Media:", calcular_media())
+            print("Media:", calcular_media(turma_atual))
 
         elif opcao == "5":
-            print("Status:", verificar_status())
+            print("Status:", verificar_status(turma_atual))
 
         elif opcao == "6":
-            mostrar_boletim()
+            mostrar_boletim(turma_atual)
 
         elif opcao == "7":
             print("Voltando ao login")
@@ -548,6 +524,30 @@ def menu_professor():
         else:
             print("Opção inválida")
         
+def selecionar_turma():
+
+    print("\nOpções de turma:")
+    print("1 - 1° EM DS")
+    print("2 - 1° EM Multimídia")
+    print("3 - 1° EM Jogos Digitais")
+    print("4 - 2° EM Multimídia")
+    print("5 - 2° EM Jogos Digitais")
+    print("6 - 3° EM Jogos Digitais")
+    turmas = {
+    "1": "1° EM DS",
+    "2": "1° EM Multimídia",
+    "3": "1° EM Jogos Digitais",
+    "4": "2° EM Multimídia",
+    "5": "2° EM Jogos Digitais",
+    "6": "3° EM Jogos Digitais"
+    }
+
+    opcao = input("Escolha a turma: ").strip()
+    if opcao in turmas:
+        return turmas[opcao]
+
+    print("Turma inválida")
+    return None
 
 def menus():
 
@@ -565,35 +565,22 @@ def menus():
             tipo = login()
 
             if tipo == "admin":
-                menu_adm()
+                turma_atual = selecionar_turma()
+
+                if turma_atual:
+                    menu_adm(turma_atual)
+                else:
+                    break
 
             elif tipo == "professor":
-                def selecionar_turma():
 
-                    print("\nOpções de turma:")
-                    print("1 - 1° EM DS")
-                    print("2 - 1° EM Multimídia")
-                    print("3 - 1° EM Jogos Digitais")
-                    print("4 - 2° EM Multimídia")
-                    print("5 - 2° EM Jogos Digitais")
-                    print("6 - 3° EM Jogos Digitais")
-                    turmas = {
-                        "1": "1° EM DS",
-                        "2": "1° EM Multimídia",
-                        "3": "1° EM Jogos Digitais",
-                        "4": "2° EM Multimídia",
-                        "5": "2° EM Jogos Digitais",
-                        "6": "3° EM Jogos Digitais"
-                        }
+                turma_atual = selecionar_turma()
 
-                    opcao = input("Escolha a turma: ").strip()
-
-                    if opcao in turmas:
-                        return turmas[opcao]
-
-                    print("Turma inválida")
-                    return None
-                menu_professor()
+                if turma_atual:
+                    menu_professor(turma_atual)
+                    
+                
+            
             
         elif escolha == "2":
             print("Programa encerrado")
