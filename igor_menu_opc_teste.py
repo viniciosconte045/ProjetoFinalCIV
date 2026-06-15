@@ -256,7 +256,7 @@ def mostrar_boletim(): #função do professor e do aluno
 def menu_escolar():
      
      while True:
-        
+  
       print("\n======== MENU ========")       
 print("Bem-vindo ao sistema escolar! Escolha uma opção: \n")
 
@@ -273,15 +273,14 @@ print("0. Sair")
 
 opcao = input("Escolha uma opção: ").strip()
 
-( "Escolha uma opção: ")
 funçãos = input("Escolha uma opção: ").strip()
-if funçãos in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]:
-  for opcao in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]:
-    if funçãos == "1":
-        cadastrar_aluno("Digite seu nome:","Digite sua idade em números:","Digite o numero da sua turma:  \n")
+for opcao in menu_escolar:
+     opcao in menu_escolar
+if funçãos == "1":
+        cadastrar_aluno("Digite seu nome:","Digite sua idade em números:","Digite o numero da sua turma:\n")
 
 elif funçãos == "2":
-        listar_alunos("Digite o número da opção desejada: ")
+        listar_alunos("Digite o número da opção desejada:")
 
 elif funçãos == "3":
         editar_aluno("digite o ID do aluno que você quer editar:\n","Digite o novo nome do aluno(reescreva o nome caso queira mante-lo)\n:","digite a nova idade do aluno(redigite a idade caso queira mante-la)\n:","digite o numero da nova turma(redigite o número caso queira mante-lo):\n")    
@@ -293,10 +292,10 @@ elif funçãos == "5":
         adicionar_nota("Digite a nota:")
 
 elif funçãos == "6":
-        remover_nota("Digite a nota que deseja remover: ")
+        remover_nota("Digite a nota que deseja remover:")
 
 elif funçãos == "7":
-            media = calcular_media("Digite o número da opção desejada: ")
+            media = calcular_media("Digite o número da opção desejada:")
             print(f"A média do aluno é: {media:.2f}\n")
 
 elif funçãos == "8":
@@ -304,7 +303,7 @@ elif funçãos == "8":
             print(f"A situação do aluno é: {status}\n")
 
 elif funçãos == "9":
-            mostrar_boletim("Escolha uma opção: ")
+            mostrar_boletim("Escolha uma opção:")
 
 elif funçãos == "0":
             print("Saindo do programa...") 
