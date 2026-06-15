@@ -334,26 +334,26 @@ else:
               if funçãos == "1":
                listar_alunos("Digite o número da opção desejada: ")
     
-            elif funçãos == "2":
+              elif funçãos == "2":
                adicionar_nota("Digite a nota: ")
     
-            elif funçãos == "3":
-             remover_nota("Digite a nota que deseja remover: ")
+              elif funçãos == "3":
+               remover_nota("Digite a nota que deseja remover: ")
     
-            elif funçãos == "4":
-             status = verificar_status("Digite o número da opção desejada:")
-            print(f"A situação do aluno é: {status}\n")
+              elif funçãos == "4":
+               status = verificar_status("Digite o número da opção desejada:")
+               print(f"A situação do aluno é: {status}\n")
             
-            elif funçãos == "5":
-            mostrar_boletim("Escolha uma opção: ")
+              elif funçãos == "5":
+               mostrar_boletim("Escolha uma opção: ")
     
-            elif funçãos == "0":
-            print("Saindo do programa...") 
+              elif funçãos == "0":
+               print("Saindo do programa...") 
 
-            else:
-            print("Opção inválida, tente novamente.\n")
-            menu_professor("Escolha uma opção: ")
-            print("Escolha uma opção: ")
+              else:
+               print("Opção inválida, tente novamente.\n")
+               menu_professor("Escolha uma opção: ")
+               print("Escolha uma opção: ")
             
             def menus():
              while True:
