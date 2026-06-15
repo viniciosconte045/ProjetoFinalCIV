@@ -316,16 +316,16 @@ else:
 
             def menu_professor():
 
-             while True:
+             while True:menu_professor()
                       
-              print("\n======== MENU_PROFESSOR ========")
+            print("\n======== MENU_PROFESSOR ========")
             
-              print("1. Listar alunos (Administrador e Professor)")
-              print("2. Adicionar nota (Professor)")
-              print("3. Remover nota (Professor)")
-              print("4. Verificar situação do aluno (Professor e Aluno)")
-              print("5. Mostrar boletim completo (Professor e Aluno)")
-              print("0. Sair")
+            print("1. Listar alunos (Administrador e Professor)")
+            print("2. Adicionar nota (Professor)")
+            print("3. Remover nota (Professor)")
+            print("4. Verificar situação do aluno (Professor e Aluno)")
+            print("5. Mostrar boletim completo (Professor e Aluno)")
+            print("0. Sair")
 
             opcao = input("Escolha uma opção:").strip()
 
@@ -357,34 +357,33 @@ else:
                menu_professor("Escolha uma opção: ")
                print("Escolha uma opção: ")
             
-            def menus():
-             while True:
+            def menu_administrador():
+             while True:menu_administrador()
               
-              print("\n======== SISTEMA ESCOLAR ========")
+            print("\n======== SISTEMA ESCOLAR ========")
 
             print("1. Menu do Administrador")
             print("2. Menu do Professor")
             print("0. Sair")
 
             opcao = input("Escolha uma opção: ").strip()
-            for opcao in menus:
+            for opcao in menus:opcoes = ["1", "2", "0"]
              
-             if opcao == "1":
+            if opcao == "1":
+              menu_administrador()
+
+            elif opcao == "2":
               menu_professor()
 
-             elif opcao == "2":
-              menu_professor()
-
-             elif opcao == "0":
+            elif opcao == "0":
               print("Saindo do programa...")
 
-             else:
+            else:
               print("Opção inválida, tente novamente.\n")
-             menus("Escolha uma opção: ")
+            menus("Escolha uma opção: ")
             print("Escolha uma opção: ")
              
 
 # siquier mudar vique avontade o codico.
 # e so um teste si tiver serto siquiser copie ou si tiver errado mude tudo vique a vontade asinado igor. 
 #sitiver no ps5 ou ps4 ou no nitendo o couquer jogo que eu jogo esqueci na steam eu mijamo igor-junio ou igor-junio2010 ou igorjunio e no roblos e igorjunio2010hdhd mais nao jogo tanto.
-# estou presisando de ajuda no menu nao estar aparesendo nada para min a jo que bugiu ou eu jis augo de erado.
