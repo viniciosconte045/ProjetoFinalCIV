@@ -253,7 +253,7 @@ def mostrar_boletim(): #função do professor e do aluno
  # fim do codigo
  # acho q ficou bom 👍
  #definir_menu() #função do menu, onde todos tem o mesmo menu
-def definir_menu():
+def menu_escolar():
      
      while True:
         
@@ -275,22 +275,22 @@ opcao = input("Escolha uma opção: ").strip()
 
 ( "Escolha uma opção: ")
 funçãos = input("Escolha uma opção: ").strip()
-if funçãos in definir_menu:
-  for opcao in definir_menu:
+if funçãos in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]:
+  for opcao in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]:
     if funçãos == "1":
-        cadastrar_aluno()
+        cadastrar_aluno("Digite seu nome:","Digite sua idade em números:","Digite o numero da sua turma:  \n")
 
 elif funçãos == "2":
         listar_alunos("Digite o número da opção desejada: ")
 
 elif funçãos == "3":
-        editar_aluno("digite o ID do aluno que você quer editar: \n","Digite o novo nome do aluno(reescreva o nome caso queira mante-lo)\n:","digite a nova idade do aluno(redigite a idade caso queira mante-la)\n:","digite o numero da nova turma(redigite o número caso queira mante-lo):\n")    
+        editar_aluno("digite o ID do aluno que você quer editar:\n","Digite o novo nome do aluno(reescreva o nome caso queira mante-lo)\n:","digite a nova idade do aluno(redigite a idade caso queira mante-la)\n:","digite o numero da nova turma(redigite o número caso queira mante-lo):\n")    
 
 elif funçãos == "4":
-        excluir_aluno("digite o ID do aluno que você quer excluir: \n")
+        excluir_aluno("digite o ID do aluno que você quer excluir:\n")
 
 elif funçãos == "5":
-        adicionar_nota("Digite a nota: ")
+        adicionar_nota("Digite a nota:")
 
 elif funçãos == "6":
         remover_nota("Digite a nota que deseja remover: ")
@@ -310,7 +310,7 @@ elif funçãos == "0":
             print("Saindo do programa...") 
 else:
             print("Opção inválida, tente novamente.\n")
-            menu_escolar("Escolha uma opção: ")
+            ("Escolha uma opção: ")
             print("Escolha uma opção: ")
 
 
