@@ -355,6 +355,8 @@ def meu():
 
         else:
             print("Opção inválida\n")
+if __name__ == "__main__":
+    meu()
 
 # siquier mudar vique avontade o codico.
 # e so um teste si tiver serto siquiser copie ou si tiver errado mude tudo vique a vontade asinado igor. 
