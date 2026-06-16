@@ -10,17 +10,13 @@ def conectar():
 
 def cadastrar_aluno(turma_atual):
     conexao = conectar()
-
     cursor = conexao.cursor()
 
     nome = input("Digite nome do aluno:  ").strip()
 
     idade = input("Digite idade do aluno:  ").strip()
 
-    print("\nOpções de turma: \n\n 1: 1° EM DS \n 2: 1° EM multimídia \n 3: 1° EM Jogos Digitais \n 4: 2° EM Multimídia \n 5: 2° EM Jogos digitais \n 6: 3° EM Jogos Digitais \n")
-    opcao_turma = input("Escolha uma turma: \n").strip()
-
-    elif not nome.replace(" ", "").isalpha(): 
+    if not nome.replace(" ", "").isalpha(): 
         print("Nome invalido\n")
 
     elif not idade.isdigit() or int(idade) <= 0:
@@ -29,7 +25,7 @@ def cadastrar_aluno(turma_atual):
     else:
         cursor.execute(
             "INSERT INTO alunos (nome, idade, turma) VALUES (%s, %s, %s)",
-            (nome, int(idade), turmas[opcao_turma])
+            (nome, int(idade), turma_atual)
         )
 
         conexao.commit()
@@ -86,7 +82,7 @@ def editar_aluno(turma_atual):
         print("ID deve ser um número válido \n")
 
     else: 
-        cursor.execute("SELECT * FROM alunos WHERE id_aluno = %s", (id_aluno,))
+        cursor.execute("SELECT * FROM alunos WHERE id_aluno = %s AND turma = %s", (id_aluno, turma_atual))
         aluno = cursor.fetchone()
 
         if aluno:
@@ -144,13 +140,13 @@ def excluir_aluno(turma_atual): #ultima parte que eu venécios terei que fazer
         print("ID deve ser um número válido\n")
 
     else:
-        cursor.execute("SELECT * FROM alunos WHERE id_aluno = %s", (id_aluno,))
+        cursor.execute("SELECT * FROM alunos WHERE id_aluno = %s AND turma = %s", (id_aluno, turma_atual))
 
         aluno = cursor.fetchone()
 
         if aluno:
 
-            cursor.execute("DELETE FROM alunos WHERE id_aluno = %s", (id_aluno,))
+            cursor.execute("DELETE FROM alunos WHERE id_aluno = %s AND turma = %s", (id_aluno, turma_atual))
 
             conexao.commit()
 
@@ -183,9 +179,9 @@ def adicionar_nota(turma_atual):
     else: 
     
         cursor.execute(
-            "SELECT * FROM alunos WHERE id_aluno = %s",
-            (id_aluno,)
-    )
+            "SELECT * FROM alunos WHERE id_aluno = %s AND turma = %s",
+            (id_aluno, turma_atual)
+        )
 
     aluno = cursor.fetchone()
 
@@ -256,8 +252,8 @@ def remover_nota(turma_atual):
         return
 
     cursor.execute(
-        "SELECT * FROM notas WHERE id_nota = %s",
-        (id_nota,)
+        "SELECT * FROM notas WHERE id_nota = %s AND id_aluno = %s",
+        (id_nota, id_aluno)
     )
 
     nota = cursor.fetchone()
@@ -298,7 +294,7 @@ def calcular_media(turma_atual):
 
 
     cursor.execute(
-        "SELECT AVG(nota) FROM notas WHERE id_aluno = %s",
+        "SELECT AVG(nota) FROM notas WHERE id_aluno = %s ",
         (id_aluno,)
     )
 
@@ -352,7 +348,12 @@ def mostrar_boletim(turma_atual):
         conexao.close()
         return
 
+    cursor.execute(
+        "SELECT * FROM alunos WHERE id_aluno = %s AND turma = %s",
+        (id_aluno, turma_atual)
+    )
 
+    aluno = cursor.fetchone()
     
 
     if not aluno:
@@ -565,7 +566,7 @@ def menus():
                 if turma_atual:
                     menu_adm(turma_atual)
                 else:
-                    break
+                    continue
 
             elif tipo == "professor":
 
