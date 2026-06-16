@@ -337,10 +337,9 @@ def meu():
     while True:
 
         print("\n======== MENU PRINCIPAL ========")
-
-        print("1. Menu do Administrador")
-        print("2. Menu do Professor")
-        print("3. Sair")
+        print("1 - fazer login como administrador")
+        print("2 - fazer login como professor")
+        print("3 - sair")
 
         opcao = input("Digite a opção desejada: ").strip()
 
@@ -356,7 +355,7 @@ def meu():
 
         else:
             print("Opção inválida\n")
-if __name__ == "__main__":
+
 # siquier mudar vique avontade o codico.
 # e so um teste si tiver serto siquiser copie ou si tiver errado mude tudo vique a vontade asinado igor. 
 #sitiver no ps5 ou ps4 ou no nitendo o couquer jogo que eu jogo esqueci na steam eu mijamo igor-junio ou igor-junio2010 ou igorjunio e no roblos e igorjunio2010hdhd mais nao jogo tanto.
