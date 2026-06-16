@@ -18,7 +18,7 @@ def cadastrar_aluno(turma_atual):
     idade = input("Digite idade do aluno:  ").strip()
 
     print("\nOpções de turma: \n\n 1: 1° EM DS \n 2: 1° EM multimídia \n 3: 1° EM Jogos Digitais \n 4: 2° EM Multimídia \n 5: 2° EM Jogos digitais \n 6: 3° EM Jogos Digitais \n")
-)
+    opcao_turma = input("Escolha uma turma: \n").strip()
 
     elif not nome.replace(" ", "").isalpha(): 
         print("Nome invalido\n")
@@ -353,12 +353,7 @@ def mostrar_boletim(turma_atual):
         return
 
 
-    cursor.execute(
-        "SELECT * FROM alunos WHERE id_aluno = %s",
-    (id_aluno,)
-)
-
-    aluno = cursor.fetchone()
+    
 
     if not aluno:
         print("Aluno não encontrado")
