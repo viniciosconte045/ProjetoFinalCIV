@@ -256,7 +256,7 @@ def mostrar_boletim(): #função do professor e do aluno
 def menu_escolar():
 
  while True: menu_escolar()
-      
+   
 print("\n======== MENU ========")       
 print("Bem-vindo ao sistema escolar! Escolha uma opção:\n")
 
