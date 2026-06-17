@@ -94,17 +94,13 @@ def editar_aluno(turma_atual):
 
             print("Opções de turma: \n 1: 1° EM DS \n 2: 1° EM multimídia \n 3: 1° EM Jogos Digitais \n 4: 2° EM Multimídia \n 5: 2° EM Jogos digitais \n 6: 3° EM Jogos Digitais\n")
             
-            nova_turma = input("digite o numero da nova turma (redigite o número caso queira mante-lo): \n").strip()
-
-            if novo_nome == "" or nova_idade == "" or nova_turma == "":
+            if novo_nome == "" or nova_idade == "" == "":
                 print("Preencha todos os campos\n")
 
             
             elif not novo_nome.replace(" ", "").isalpha():
                 print("Nome inválido\n")
 
-            elif nova_turma not in ["1", "2", "3", "4", "5", "6"]:
-                print("Turma inválida")
             
             elif not nova_idade.isdigit() or int(nova_idade) <= 0:
                 print("Idade deve ser um número válido\n")
@@ -112,8 +108,8 @@ def editar_aluno(turma_atual):
             else:
 
                 cursor.execute(
-                "UPDATE alunos SET nome = %s, idade = %s, turma = %s WHERE id_aluno = %s",
-                (novo_nome, int(nova_idade), turmas[nova_turma], id_aluno))
+                "UPDATE alunos SET nome = %s, idade = %s WHERE id_aluno = %s",
+                (novo_nome, int(nova_idade), id_aluno))
 
                 conexao.commit()
 
@@ -491,7 +487,8 @@ def menu_professor(turma_atual):
         print("4 - Calcular média")
         print("5 - Verificar status")
         print("6 - Mostrar boletim")
-        print("7 - Voltar ao login\n")
+        print("7 - Trocar de turma")
+        print("8 - Voltar ao login\n")
 
         opcao = input("Escolha uma opção: ").strip()
 
@@ -514,6 +511,11 @@ def menu_professor(turma_atual):
             mostrar_boletim(turma_atual)
 
         elif opcao == "7":
+            print("Voltando à seleção de turmas")
+            return
+
+
+        elif opcao == "8":
             print("Voltando ao login")
             break
 
@@ -570,10 +572,17 @@ def menus():
 
             elif tipo == "professor":
 
-                turma_atual = selecionar_turma()
 
-                if turma_atual:
-                    menu_professor(turma_atual)
+                while True:
+                    turma_atual = selecionar_turma()
+
+                    if not turma_atual:
+                        break
+
+                    resultado = menu_professor(turma_atual)
+
+                    if resultado == "login":
+                        break
                     
                 
             
