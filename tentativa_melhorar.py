@@ -64,19 +64,10 @@ def editar_aluno(turma_atual):
 
     cursor = conexao.cursor()
 
-    turmas = {
-
-    "1": "1° EM DS",
-    "2": "1° EM Multimídia",
-    "3": "1° EM Jogos Digitais",
-    "4": "2° EM Multimídia",
-    "5": "2° EM Jogos Digitais",
-    "6": "3° EM Jogos Digitais"
-}
 
     listar_alunos(turma_atual)
 
-    id_aluno = input("digite o ID do aluno que você quer editar: \n").strip()
+    id_aluno = input("digite o ID do aluno que você quer editar: ").strip()
 
     if not id_aluno.isdigit():
         print("ID deve ser um número válido \n")
@@ -91,18 +82,19 @@ def editar_aluno(turma_atual):
             novo_nome = input("Digite o novo nome do aluno (reescreva o nome caso queira mante-lo)\n:").strip()
 
             nova_idade = input("digite a nova idade do aluno (redigite a idade caso queira mante-la)\n:").strip()
-
-            print("Opções de turma: \n 1: 1° EM DS \n 2: 1° EM multimídia \n 3: 1° EM Jogos Digitais \n 4: 2° EM Multimídia \n 5: 2° EM Jogos digitais \n 6: 3° EM Jogos Digitais\n")
             
-            if novo_nome == "" or nova_idade == "" == "":
-                print("Preencha todos os campos\n")
+            if novo_nome == "":
+                novo_nome = aluno[1]
+
+            if nova_idade == "":
+                nova_idade = aluno[2]
 
             
-            elif not novo_nome.replace(" ", "").isalpha():
+            if not str(novo_nome).replace(" ", "").isalpha():
                 print("Nome inválido\n")
 
             
-            elif not nova_idade.isdigit() or int(nova_idade) <= 0:
+            elif not str(nova_idade).isdigit() or int(nova_idade) <= 0:
                 print("Idade deve ser um número válido\n")
 
             else:
