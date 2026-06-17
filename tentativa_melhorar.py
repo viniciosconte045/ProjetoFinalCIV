@@ -517,7 +517,7 @@ def menu_professor(turma_atual):
 
         elif opcao == "8":
             print("Voltando ao login")
-            break
+            return "login"
 
         else:
             print("Opção inválida")
@@ -553,7 +553,7 @@ def menus():
 
         print("\n===== SISTEMA ESCOLAR =====")
         print("1 - Fazer login")
-        print("2 - Sair")
+        print("2 - Sair\n")
 
         escolha = input("Escolha uma opção: ").strip()
 
