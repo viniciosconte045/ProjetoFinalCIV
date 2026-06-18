@@ -236,7 +236,7 @@ def editar_nota():
             if nova_nota >= 0 and nova_nota <= 10:
  
                 notas_aluno[indice] = nova_nota
-                
+
 
  
                 print("Nota atualizada com sucesso!\n")
@@ -262,13 +262,8 @@ def calcular_media():
     media = soma_notas / len(notas_aluno)
  
     return media
-<<<<<<< HEAD
  
  
-=======
-  
-
->>>>>>> 380c963f5b91c5e70a94d9363987b7b91ebcc899
 # verificar situação do aluno
 def verificar_status():
  
