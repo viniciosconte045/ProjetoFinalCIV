@@ -173,138 +173,182 @@ def excluir_aluno(): #ultima parte que eu venécios terei que fazer
 #para ir vendo o progresso e depois de terminar por favor  cole o codigo no cod_alunos_adc para o igor poder fazer o menu
 
 # sistema de boletim escolar
-
+ 
 notas_aluno = []
-
+ 
 # adicionar nota
 def adicionar_nota():
-
+ 
     nota = float(input("Digite a nota: "))
-
+ 
     if nota >= 0 and nota <= 10:
         notas_aluno.append(nota)
         print("Nota adicionada!\n")
-
+ 
     else:
         print("A nota precisa ser entre 0 e 10\n")
-
-
+ 
+ 
 # remover nota
 def remover_nota():
-
+ 
     if len(notas_aluno) == 0:
         print("Nao existem notas cadastradas\n")
-
+ 
     else:
-        print("Notas:", notas_aluno)
-
-        nota_remover = float(input("Digite a nota que deseja remover: "))
-
-        if nota_remover in notas_aluno:
-            notas_aluno.remove(nota_remover)
-            print("Nota removida com sucesso\n")
-
+ 
+        print("\nLista de notas:")
+ 
+        for i in range(len(notas_aluno)):
+            print(f"{i} - {notas_aluno[i]}")
+ 
+        indice = int(input("Digite o numero da nota que deseja remover: "))
+ 
+        if indice >= 0 and indice < len(notas_aluno):
+ 
+            notas_aluno.pop(indice)
+ 
+            print("Nota removida com sucesso!\n")
+ 
         else:
-            print("Nota nao encontrada\n")
-
-
+            print("Indice invalido\n")
+ 
+ 
+# editar nota
+def editar_nota():
+ 
+    if len(notas_aluno) == 0:
+        print("Nao existem notas cadastradas\n")
+ 
+    else:
+ 
+        print("\nLista de notas:")
+ 
+        for i in range(len(notas_aluno)):
+            print(f"{i} - {notas_aluno[i]}")
+ 
+        indice = int(input("Digite o numero da nota que deseja editar: "))
+ 
+        if indice >= 0 and indice < len(notas_aluno):
+ 
+            nova_nota = float(input("Digite a nova nota: "))
+ 
+            if nova_nota >= 0 and nova_nota <= 10:
+ 
+                notas_aluno[indice] = nova_nota
+ 
+                print("Nota atualizada com sucesso!\n")
+ 
+            else:
+                print("A nota deve estar entre 0 e 10\n")
+ 
+        else:
+            print("Indice invalido\n")
+ 
+ 
 # calcular média
 def calcular_media():
-
+ 
     if len(notas_aluno) == 0:
         return 0
-
+ 
     soma_notas = 0
-
+ 
     for nota in notas_aluno:
         soma_notas = soma_notas + nota
-
+ 
     media = soma_notas / len(notas_aluno)
-
+ 
     return media
-
-
+ 
+ 
 # verificar situação do aluno
 def verificar_status():
-
+ 
     media = calcular_media()
-
+ 
     if media >= 7:
         return "Aprovado"
-
+ 
     elif media >= 5:
         return "Recuperacao"
-
+ 
     else:
         return "Reprovado"
-
-
+ 
+ 
 # mostrar boletim completo
 def mostrar_boletim():
-
+ 
     print("\n======== BOLETIM ========")
-
+ 
     if len(notas_aluno) == 0:
         print("Nenhuma nota cadastrada")
-
+ 
     else:
-        print("Notas do aluno:", notas_aluno)
-
+ 
+        print("Notas do aluno:")
+ 
+        for nota in notas_aluno:
+            print(nota)
+ 
         media_final = calcular_media()
-
-        print("Media final:", round(media_final, 2))
-
+ 
+        print("\nMedia final:", round(media_final, 2))
+ 
         status = verificar_status()
-
+ 
         print("Situacao:", status)
-
+ 
     print("=========================\n")
 
 
 # menu principal
 while True:
-
+ 
+    print("\n===== MENU NOTAS =====")
     print("1 - Adicionar nota")
     print("2 - Remover nota")
-    print("3 - Calcular media")
-    print("4 - Verificar status")
-    print("5 - Mostrar boletim")
-    print("6 - Sair")
-
+    print("3 - Editar nota")
+    print("4 - Calcular média")
+    print("5 - Verificar status")
+    print("6 - Mostrar boletim")
+    print("7 - Sair")
+ 
     escolha = input("Escolha uma opção: ")
-
+ 
     if escolha == "1":
         adicionar_nota()
-
+ 
     elif escolha == "2":
         remover_nota()
-
+ 
     elif escolha == "3":
-
-        media = calcular_media()
-
-        print("Media do aluno:", round(media, 2))
-        print()
-
+        editar_nota()
+ 
     elif escolha == "4":
-
-        situacao = verificar_status()
-
-        print("Status do aluno:", situacao)
-        print()
-
+ 
+        media = calcular_media()
+ 
+        print("Media do aluno:", round(media, 2))
+ 
     elif escolha == "5":
-        mostrar_boletim()
-
+ 
+        situacao = verificar_status()
+ 
+        print("Status do aluno:", situacao)
+ 
     elif escolha == "6":
-
+        mostrar_boletim()
+ 
+    elif escolha == "7":
+ 
         print("Encerrando sistema...")
         break
-
+ 
     else:
-        print("Opcao invalida, tente novamente\n")
+        print("Opcao invalida")
 
 
 # fim do codigo
 # acho q ficou bom 👍
- 
