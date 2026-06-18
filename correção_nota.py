@@ -243,43 +243,76 @@ def adicionar_nota():
     cursor.close()
     conexao.close()
 
-def editar_nota():
+def editar_nota(turma_atual):
 
     conexao = conectar()
 
     cursor = conexao.cursor()
 
- 
-    if len(notas_aluno) == 0:
-        print("Nao existem notas cadastradas\n")
- 
-    else:
- 
-        print("\nLista de notas:")
- 
-        for i in range(len(notas_aluno)):
-            print(f"{i} - {notas_aluno[i]}")
- 
-        indice = int(input("Digite o numero da nota que deseja editar: "))
- 
-        if indice >= 0 and indice < len(notas_aluno):
- 
-            nova_nota = float(input("Digite a nova nota: "))
- 
-            if nova_nota >= 0 and nova_nota <= 10:
- 
-                notas_aluno[indice] = nova_nota
-                
+    listar_alunos(turma_atual)
 
- 
-                print("Nota atualizada com sucesso!\n")
- 
-            else:
-                print("A nota deve estar entre 0 e 10\n")
- 
+    id_aluno = input("Digite o ID do aluno: ").strip()
+
+    if not id_aluno.isdigit():
+        print("ID inválido\n")
+
+    else:
+         
+        cursor.execute(
+            "SELECT id_nota, nota FROM notas WHERE id_aluno = %s",(id_aluno,))
+    
+        notas = cursor.fetchall()
+    
+        if len(notas) == 0:
+            print("Nenhuma nota cadastrada para este aluno\n")
+
         else:
-            print("Indice invalido\n")
- 
+            
+            print("===== Notas cadastradas =====")
+
+            for nota in notas:
+                print(f"ID da Nota: {nota[0]} - Nota: {nota[1]}")
+            
+            id_nota = input("Digite o ID da nota que deseja editar: ").strip()
+
+            if not id_nota.isdigit():
+                 print("ID da nota inválido\n")
+                
+                
+            else:
+                cursor.execute(
+                    "SELECT * FROM notas WHERE id_nota = %s",
+                    (id_nota,)
+                )
+                nota = cursor.fetchone()
+
+                if not nota:
+                    print("Nota não encontrada\n")
+
+                else:
+
+                    nova_nota = input("Digite a nova nota: ").strip().replace(",", ".")
+
+                    if not nova_nota.replace(".", "", 1).isdigit():
+                        print("Nota inválida\n")
+
+                    elif float(nova_nota) < 0 or float(nova_nota) > 10:
+                        print("A nota deve estar entre 0 e 10\n")
+
+                    else:
+
+                        cursor.execute(
+                            "UPDATE notas SET nota = %s WHERE id_nota = %s",
+                            (float(nova_nota), id_nota)
+                        )
+
+                        conexao.commit()
+
+                        print("\nNota atualizada com sucesso!\n")
+
+    cursor.close()
+    conexao.close()
+
 
 def remover_nota():
 
@@ -525,10 +558,11 @@ def menu_professor():
         print("1 - Listar alunos")
         print("2 - Adicionar nota")
         print("3 - Remover nota")
-        print("4 - Calcular média")
+        print("4 - Editar nota")
         print("5 - Verificar status")
         print("6 - Mostrar boletim")
-        print("7 - Voltar ao login\n")
+        print("7 - Calcular média")
+        print("8 - Voltar ao login\n")
 
         opcao = input("Escolha uma opção: ").strip()
 
@@ -542,7 +576,7 @@ def menu_professor():
             remover_nota()
 
         elif opcao == "4":
-            print("Media:", calcular_media())
+            editar_nota()
 
         elif opcao == "5":
             print("Status:", verificar_status())
@@ -551,6 +585,9 @@ def menu_professor():
             mostrar_boletim()
 
         elif opcao == "7":
+            print("Media:", calcular_media())
+
+        elif opcao == "8":
             print("Voltando ao login")
             break
 
