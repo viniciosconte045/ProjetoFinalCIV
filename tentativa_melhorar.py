@@ -77,11 +77,11 @@ def editar_aluno(turma_atual):
         aluno = cursor.fetchone()
 
         if aluno:
-            print(f"ID: {aluno[0]}, Nome: {aluno[1]}, Idade: {aluno[2]}, Turma: {aluno[3]}")
+            print(f"\nID: {aluno[0]}, Nome: {aluno[1]}, Idade: {aluno[2]}, Turma: {aluno[3]}")
 
-            novo_nome = input("Digite o novo nome do aluno (reescreva o nome caso queira mante-lo)\n:").strip()
+            novo_nome = input("\nDigite o novo nome do aluno (reescreva o nome caso queira mante-lo): ").strip()
 
-            nova_idade = input("digite a nova idade do aluno (redigite a idade caso queira mante-la)\n:").strip()
+            nova_idade = input("\nDigite a nova idade do aluno (redigite a idade caso queira mante-la): ").strip()
             
             if novo_nome == "":
                 novo_nome = aluno[1]
@@ -97,19 +97,38 @@ def editar_aluno(turma_atual):
             elif not str(nova_idade).isdigit() or int(nova_idade) <= 0:
                 print("Idade deve ser um número válido\n")
 
+            elif novo_nome == aluno[1] and int(nova_idade) == aluno[2]:
+                print("Nenhuma alteração foi feita\n")
+
             else:
 
-                cursor.execute(
-                "UPDATE alunos SET nome = %s, idade = %s WHERE id_aluno = %s",
-                (novo_nome, int(nova_idade), id_aluno))
+                print("\n===== ALTERAÇÕES =====")
 
-                conexao.commit()
+                if novo_nome != aluno[1]:
+                    print(f"Novo nome: {novo_nome}")
 
-                print("Aluno atualizado\n")
+                if int(nova_idade) != aluno[2]:
+                    print(f"Nova idade: {nova_idade}")
 
+                print()
+
+                confirmacao = input("\nConfirmar alterações? (s/n): ").strip().lower()
+
+                if confirmacao == "s":
+
+                        cursor.execute(
+                    "UPDATE alunos SET nome = %s, idade = %s WHERE id_aluno = %s",
+                    (novo_nome, int(nova_idade), id_aluno)
+                    )
+
+            conexao.commit()
+
+            print("\nAluno atualizado\n")
 
         else:
-            print("Aluno não encontrado\n")
+            print("\nAlteração cancelada\n")
+
+        
 
     cursor.close()
 
