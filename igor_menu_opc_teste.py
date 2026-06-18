@@ -301,7 +301,7 @@ def menu_professor():
         print("5. Calcular média")
         print("6. Verificar situação do aluno")
         print("7. Sair")
-
+        
         opcao = input("Digite a opção desejada: ").strip()
 
         if opcao == "1":
