@@ -7,7 +7,7 @@ def conectar():
         password="Senac2026",
         database="escola_db"
     )
-
+   
 def cadastrar_aluno():
     conexao = conectar()
 
