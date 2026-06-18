@@ -308,7 +308,6 @@ def mostrar_boletim():
     print("=========================\n")
 
 
-<<<<<<< HEAD
 # menu principal
 while True:
  
@@ -358,11 +357,3 @@ while True:
 
 # fim do codigo
 # acho q ficou bom 👍
-=======
-
-
-
-# fim do codigo
-# acho q ficou bom 👍
- 
->>>>>>> 380c963f5b91c5e70a94d9363987b7b91ebcc899
