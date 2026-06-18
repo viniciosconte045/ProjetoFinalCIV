@@ -141,7 +141,7 @@ def excluir_aluno(turma_atual): #ultima parte que eu venécios terei que fazer
 
     listar_alunos(turma_atual)
 
-    id_aluno = input("digite o ID do aluno que você quer excluir: \n").strip()
+    id_aluno = input("digite o ID do aluno que você quer excluir: ").strip()
 
     if not id_aluno.isdigit():
         print("ID deve ser um número válido\n")
@@ -151,13 +151,30 @@ def excluir_aluno(turma_atual): #ultima parte que eu venécios terei que fazer
 
         aluno = cursor.fetchone()
 
+
+
         if aluno:
 
-            cursor.execute("DELETE FROM alunos WHERE id_aluno = %s AND turma = %s", (id_aluno, turma_atual))
+          
+            print("===== DADOS DO ALUNO =====")
+          
+            print(f"Nome : {aluno[1]}")
+            print(f"Idade: {aluno[2]}")
+            print(f"Turma: {aluno[3]}\n")
+            
 
-            conexao.commit()
+            confirmar = input("Deseja realmente excluir este aluno? (s/n): ").strip().lower()
 
-            print("Aluno excluído\n")
+            if confirmar == "s":
+
+                cursor.execute("DELETE FROM alunos WHERE id_aluno = %s AND turma = %s", (id_aluno, turma_atual))
+
+                conexao.commit()
+
+                print("\nAluno excluído\n")
+
+            else:
+                print("Exclusão cancelada\n")
 
         else:
             print("Aluno não encontrado\n")
