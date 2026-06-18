@@ -330,8 +330,7 @@ def menu_professor():
 
         else:
             print("Opção inválida\n")
-
-
+            
 def meu():
 
     while True:
