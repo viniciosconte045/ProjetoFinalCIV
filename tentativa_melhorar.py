@@ -91,14 +91,14 @@ def editar_aluno(turma_atual):
 
             
             if not str(novo_nome).replace(" ", "").isalpha():
-                print("Nome inválido\n")
+                print("\nNome inválido\n")
 
             
             elif not str(nova_idade).isdigit() or int(nova_idade) <= 0:
-                print("Idade deve ser um número válido\n")
+                print("\nIdade deve ser um número válido\n")
 
             elif novo_nome == aluno[1] and int(nova_idade) == aluno[2]:
-                print("Nenhuma alteração foi feita\n")
+                print("\nNenhuma alteração foi feita\n")
 
             else:
 
