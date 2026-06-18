@@ -7,7 +7,7 @@ def conectar():
         password="Senac2026",
         database="escola_db"
     )
-
+   
 def cadastrar_aluno():
     conexao = conectar()
 
@@ -260,8 +260,13 @@ def calcular_media():
     media = soma_notas / len(notas_aluno)
  
     return media
+<<<<<<< HEAD
  
  
+=======
+  
+
+>>>>>>> 380c963f5b91c5e70a94d9363987b7b91ebcc899
 # verificar situação do aluno
 def verificar_status():
  
@@ -303,6 +308,7 @@ def mostrar_boletim():
     print("=========================\n")
 
 
+<<<<<<< HEAD
 # menu principal
 while True:
  
@@ -352,3 +358,11 @@ while True:
 
 # fim do codigo
 # acho q ficou bom 👍
+=======
+
+
+
+# fim do codigo
+# acho q ficou bom 👍
+ 
+>>>>>>> 380c963f5b91c5e70a94d9363987b7b91ebcc899
