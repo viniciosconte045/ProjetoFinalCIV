@@ -243,7 +243,43 @@ def adicionar_nota():
     cursor.close()
     conexao.close()
 
-# remover nota
+def editar_nota():
+
+    conexao = conectar()
+
+    cursor = conexao.cursor()
+
+ 
+    if len(notas_aluno) == 0:
+        print("Nao existem notas cadastradas\n")
+ 
+    else:
+ 
+        print("\nLista de notas:")
+ 
+        for i in range(len(notas_aluno)):
+            print(f"{i} - {notas_aluno[i]}")
+ 
+        indice = int(input("Digite o numero da nota que deseja editar: "))
+ 
+        if indice >= 0 and indice < len(notas_aluno):
+ 
+            nova_nota = float(input("Digite a nova nota: "))
+ 
+            if nova_nota >= 0 and nova_nota <= 10:
+ 
+                notas_aluno[indice] = nova_nota
+                
+
+ 
+                print("Nota atualizada com sucesso!\n")
+ 
+            else:
+                print("A nota deve estar entre 0 e 10\n")
+ 
+        else:
+            print("Indice invalido\n")
+ 
 
 def remover_nota():
 
