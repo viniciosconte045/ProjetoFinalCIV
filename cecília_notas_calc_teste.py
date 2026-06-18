@@ -236,6 +236,8 @@ def editar_nota():
             if nova_nota >= 0 and nova_nota <= 10:
  
                 notas_aluno[indice] = nova_nota
+                
+
  
                 print("Nota atualizada com sucesso!\n")
  
