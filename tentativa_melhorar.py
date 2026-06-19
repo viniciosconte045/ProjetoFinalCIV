@@ -129,7 +129,7 @@ def editar_aluno(turma_atual):
             print("\nAlteração cancelada\n")
 
         
-
+#
     cursor.close()
 
     conexao.close()
