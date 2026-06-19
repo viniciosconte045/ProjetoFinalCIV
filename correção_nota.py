@@ -259,7 +259,9 @@ def editar_nota(turma_atual):
     else:
          
         cursor.execute(
-            "SELECT id_nota, nota FROM notas WHERE id_aluno = %s",(id_aluno,))
+            "SELECT id_nota, nota FROM notas WHERE id_aluno = %s",
+            (id_aluno,)
+            )
     
         notas = cursor.fetchall()
     
@@ -281,8 +283,8 @@ def editar_nota(turma_atual):
                 
             else:
                 cursor.execute(
-                    "SELECT * FROM notas WHERE id_nota = %s",
-                    (id_nota,)
+                    "SELECT * FROM notas WHERE id_nota = %s and id_aluno = %s",
+                    (id_nota, id_aluno)
                 )
                 nota = cursor.fetchone()
 
@@ -314,39 +316,44 @@ def editar_nota(turma_atual):
     conexao.close()
 
 
-def remover_nota():
+def remover_nota(turma_atual):
 
-    listar_alunos()
+    listar_alunos(turma_atual)
 
     conexao = conectar()
     cursor = conexao.cursor()
 
+    id_aluno = input("Digite o ID do aluno: ").strip()
+    
     id_nota = input("Digite o ID da nota que deseja remover: ").strip()
 
-    if not id_nota.isdigit():
+    if not id_aluno.isdigit() or not id_nota.isdigit():
         print("ID inválido\n")
-
-    cursor.execute(
-        "SELECT * FROM notas WHERE id_nota = %s",
-        (id_nota,)
-    )
-
-    nota = cursor.fetchone()
-
-
-    if not nota:
-        print("Nota não encontrada\n")
 
     else:
 
         cursor.execute(
-            "DELETE FROM notas WHERE id_nota = %s",
-        (id_nota,)
-    )
+            "SELECT * FROM notas WHERE id_nota = %s AND id_aluno = %s",
+            (id_nota, id_aluno)
+        )
 
-        conexao.commit()
-        print("Nota removida com sucesso\n")
+        nota = cursor.fetchone()
 
+        if not nota:
+            print("Nota não encontrada\n")
+
+
+        else:
+            cursor.execute(
+                "DELETE FROM notas WHERE id_nota = %s",
+                (id_nota,)
+            )
+
+            conexao.commit()
+
+            print("Nota removida com sucesso\n")
+
+    
     
     cursor.close()
     conexao.close()
