@@ -50,9 +50,20 @@ def listar_alunos(turma):
 
     if len(alunos) == 0:
         print("\nNenhum aluno cadastrado\n")
+        cursor.close()
+        conexao.close()
+        return
     
+    print(f"\nAlunos da turma {turma}:")
+
     for aluno in alunos:
-        print(f"\nID: {aluno[0]},    Nome: {aluno[1]},    Idade: {aluno[2]},   Turma: {aluno[3]}\n")
+        print(f"\nID: {aluno[0]}")
+        print(f"Nome: {aluno[1]}")
+        print(f"Idade: {aluno[2]}")
+        print(f"Turma: {aluno[3]}") 
+        print("--------------------")  
+
+
 
     cursor.close()
 
@@ -237,6 +248,120 @@ def adicionar_nota(turma_atual):
     conexao.close()
 
 # remover nota
+def editar_nota(turma_atual):
+
+    conexao = conectar()
+
+    cursor = conexao.cursor()
+
+    listar_alunos(turma_atual)
+
+    id_aluno = input("Digite o ID do aluno: ").strip()
+
+    if not id_aluno.isdigit():
+        print("ID inválido\n")
+
+    else:
+         
+        cursor.execute(
+            "SELECT id_nota, nota FROM notas WHERE id_aluno = %s",
+            (id_aluno,)
+            )
+    
+        notas = cursor.fetchall()
+    
+        if len(notas) == 0:
+            print("Nenhuma nota cadastrada para este aluno\n")
+
+        else:
+            
+            print("===== Notas cadastradas =====")
+
+            for nota in notas:
+                print(f"ID da Nota: {nota[0]} - Nota: {nota[1]}")
+            
+            id_nota = input("Digite o ID da nota que deseja editar: ").strip()
+
+            if not id_nota.isdigit():
+                 print("ID da nota inválido\n")
+                
+                
+            else:
+                cursor.execute(
+                    "SELECT * FROM notas WHERE id_nota = %s and id_aluno = %s",
+                    (id_nota, id_aluno)
+                )
+                nota = cursor.fetchone()
+
+                if not nota:
+                    print("Nota não encontrada\n")
+
+                else:
+
+                    nova_nota = input("Digite a nova nota: ").strip().replace(",", ".")
+
+                    if not nova_nota.replace(".", "", 1).isdigit():
+                        print("Nota inválida\n")
+
+                    elif float(nova_nota) < 0 or float(nova_nota) > 10:
+                        print("A nota deve estar entre 0 e 10\n")
+
+                    else:
+
+                        cursor.execute(
+                            "UPDATE notas SET nota = %s WHERE id_nota = %s",
+                            (float(nova_nota), id_nota)
+                        )
+
+                        conexao.commit()
+
+                        print("\nNota atualizada com sucesso!\n")
+
+    cursor.close()
+    conexao.close()
+
+
+def remover_nota(turma_atual):
+
+    listar_alunos(turma_atual)
+
+    conexao = conectar()
+    cursor = conexao.cursor()
+
+    id_aluno = input("Digite o ID do aluno: ").strip()
+    
+    id_nota = input("Digite o ID da nota que deseja remover: ").strip()
+
+    if not id_aluno.isdigit() or not id_nota.isdigit():
+        print("ID inválido\n")
+
+    else:
+
+        cursor.execute(
+            "SELECT * FROM notas WHERE id_nota = %s AND id_aluno = %s",
+            (id_nota, id_aluno)
+        )
+
+        nota = cursor.fetchone()
+
+        if not nota:
+            print("Nota não encontrada\n")
+
+
+        else:
+            cursor.execute(
+                "DELETE FROM notas WHERE id_nota = %s",
+                (id_nota,)
+            )
+
+            conexao.commit()
+
+            print("Nota removida com sucesso\n")
+
+    
+    
+    cursor.close()
+    conexao.close()
 
 def remover_nota(turma_atual):
 
