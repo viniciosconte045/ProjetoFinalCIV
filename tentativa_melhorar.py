@@ -79,9 +79,9 @@ def editar_aluno(turma_atual):
         if aluno:
             print(f"\nID: {aluno[0]}, Nome: {aluno[1]}, Idade: {aluno[2]}, Turma: {aluno[3]}")
 
-            novo_nome = input("\nDigite o novo nome do aluno (reescreva o nome caso queira mante-lo): ").strip()
+            novo_nome = input("\nDigite o novo nome do aluno (deixe em branco caso queira mante-lo): ").strip()
 
-            nova_idade = input("\nDigite a nova idade do aluno (redigite a idade caso queira mante-la): ").strip()
+            nova_idade = input("\nDigite a nova idade do aluno (deixe em branco caso queira mante-la): ").strip()
             
             if novo_nome == "":
                 novo_nome = aluno[1]
@@ -117,18 +117,20 @@ def editar_aluno(turma_atual):
                 if confirmacao == "s":
 
                         cursor.execute(
-                    "UPDATE alunos SET nome = %s, idade = %s WHERE id_aluno = %s",
-                    (novo_nome, int(nova_idade), id_aluno)
-                    )
+                            "UPDATE alunos SET nome = %s, idade = %s WHERE id_aluno = %s",
+                            (novo_nome, int(nova_idade), id_aluno)
+                        )
+                        
+                        conexao.commit()
+                
+                        print("\nAluno atualizado\n")
 
-            conexao.commit()
-
-            print("\nAluno atualizado\n")
-
+                else:
+                    print("\nAlteração cancelada\n")
+                
         else:
-            print("\nAlteração cancelada\n")
-
-        
+            print("\nAluno não encontrado\n")
+            
 #
     cursor.close()
 
