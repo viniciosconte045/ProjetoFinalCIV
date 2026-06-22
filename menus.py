@@ -80,7 +80,7 @@ def menu_professor(turma_atual):
             remover_nota(turma_atual)
 
         elif opcao == "5":
-            print(listar_notas(turma_atual))
+            listar_notas(turma_atual)
 
         elif opcao == "6":
             boletim_geral(turma_atual)
@@ -141,10 +141,9 @@ def menus():
                 while True:
                     turma_atual = selecionar_turma()
 
-                    if turma_atual:
-                        menu_adm(turma_atual)
-                    else:
+                    if not turma_atual:
                         continue
+                    
 
             elif tipo == "professor":
 
@@ -153,7 +152,7 @@ def menus():
                     turma_atual = selecionar_turma()
 
                     if not turma_atual:
-                        break
+                        continue
 
                     resultado = menu_professor(turma_atual)
 
