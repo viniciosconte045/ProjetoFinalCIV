@@ -1,7 +1,6 @@
 from banco import conectar
 from alunos import listar_alunos
 
-notas_aluno = []
 
 def adicionar_nota(turma_atual):
 
@@ -52,7 +51,7 @@ def adicionar_nota(turma_atual):
     cursor.close()
     conexao.close()
 
-# remover nota
+
 def editar_nota(turma_atual):
 
     conexao = conectar()
@@ -125,48 +124,6 @@ def editar_nota(turma_atual):
     cursor.close()
     conexao.close()
 
-
-def remover_nota(turma_atual):
-
-    listar_alunos(turma_atual)
-
-    conexao = conectar()
-    cursor = conexao.cursor()
-
-    id_aluno = input("Digite o ID do aluno: ").strip()
-    
-    id_nota = input("Digite o ID da nota que deseja remover: ").strip()
-
-    if not id_aluno.isdigit() or not id_nota.isdigit():
-        print("ID inválido\n")
-
-    else:
-
-        cursor.execute(
-            "SELECT * FROM notas WHERE id_nota = %s AND id_aluno = %s",
-            (id_nota, id_aluno)
-        )
-
-        nota = cursor.fetchone()
-
-        if not nota:
-            print("Nota não encontrada\n")
-
-
-        else:
-            cursor.execute(
-                "DELETE FROM notas WHERE id_nota = %s",
-                (id_nota,)
-            )
-
-            conexao.commit()
-
-            print("Nota removida com sucesso\n")
-
-    
-    
-    cursor.close()
-    conexao.close()
 
 def remover_nota(turma_atual):
 
