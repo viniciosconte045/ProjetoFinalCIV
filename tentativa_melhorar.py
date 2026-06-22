@@ -631,7 +631,7 @@ def menu_professor(turma_atual):
             remover_nota(turma_atual)
 
         elif opcao == "5":
-            print()
+            print(listar_notas(turma_atual))
 
         elif opcao == "6":
             boletim_geral(turma_atual)
