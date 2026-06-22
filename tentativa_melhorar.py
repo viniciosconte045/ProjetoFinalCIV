@@ -489,7 +489,7 @@ def boletim_geral(turma_atual):
     conexao = conectar()
     cursor = conexao.cursor()
 
-    cursor.execute("""SELECT id_aluno, nomeFROM alunosWHERE turma = %sORDER BY nome""",
+    cursor.execute("""SELECT id_aluno, nome FROM alunos WHERE turma = %s ORDER BY nome""",
         (turma_atual,))
 
     alunos = cursor.fetchall()
@@ -499,32 +499,32 @@ def boletim_geral(turma_atual):
 
     else:
         print("\n======== BOLETIM GERAL ========\n")
-    
-    for alunos in alunos:
+        
+        for aluno in alunos:
 
-        cursor.execute(
-            "SELECT AVG(nota) FROM notas WHERE id_aluno = %s",
-            (aluno[0],)
-        )
+            cursor.execute(
+                "SELECT AVG(nota) FROM notas WHERE id_aluno = %s",
+                (aluno[0],)
+            )
 
-        media = cursor.fetchone()[0]
+            media = cursor.fetchone()[0]
 
-        if media is None:
-                media = 0
+            if media is None:
+                    media = 0
 
-        print(f"Aluno: {aluno[1]}")
-        print(f"Média: {round(media, 2)}")
+            print(f"Aluno: {aluno[1]}")
+            print(f"Média: {round(media, 2)}")
 
-        if media >= 7:
-                print("Situacao: Aprovado")
+            if media >= 7:
+                    print("Situacao: Aprovado")
 
-        elif media >= 5:
-                print("Situacao: Recuperacao")
+            elif media >= 5:
+                    print("Situacao: Recuperacao")
 
-        else:
-            print("Situacao: Reprovado")
+            else:
+                print("Situacao: Reprovado")
 
-        print("=========================\n")
+            print("=========================\n")
 
     cursor.close()
     conexao.close()
