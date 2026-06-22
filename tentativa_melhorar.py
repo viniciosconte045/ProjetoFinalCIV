@@ -626,7 +626,7 @@ def menu_adm(turma_atual):
 
         elif opcao == "6":
             print("voltando ao login")
-            break
+            return "login"
 
         else:
             print("Opção inválida")
