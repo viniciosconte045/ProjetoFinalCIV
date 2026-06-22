@@ -1,3 +1,5 @@
 from menus import menus
 
-menus()
+if __name__ == "__main__":
+
+    menus()
