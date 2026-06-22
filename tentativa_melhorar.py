@@ -427,7 +427,47 @@ def remover_nota(turma_atual):
     cursor.close()
     conexao.close()
 
-# calcular média
+def listar_notas(turma_atual):
+
+    conexao = conectar()
+    cursor = conexao.cursor()
+
+    cursor.execute(
+        "SELECT id_aluno, nome FROM alunos WHERE turma = %s ORDER BY nome",
+        (turma_atual,)
+    )
+
+    alunos = cursor.fetchall()
+
+    if len(alunos) == 0:
+        print("\nNenhum aluno cadastrado\n")
+
+    else:
+
+        print("\n======== LISTA DE NOTAS ========\n")
+
+        for aluno in alunos:
+
+            cursor.execute(
+                "SELECT nota FROM notas WHERE id_aluno = %s",
+                (aluno[0],)
+            )
+
+            notas = cursor.fetchall()
+
+            print(f"Aluno: {aluno[1]}")
+
+            if len(notas) == 0:
+                print("Notas: Sem notas cadastradas")
+
+            else:
+                lista_notas = [str(nota[0]) for nota in notas]
+                print(f"Notas: {', '.join(lista_notas)}")
+
+            print("-----------------------------")
+
+    cursor.close()
+    conexao.close()
 
 
 # mostrar boletim completo
