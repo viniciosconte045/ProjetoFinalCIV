@@ -428,59 +428,6 @@ def remover_nota(turma_atual):
     conexao.close()
 
 # calcular média
-def calcular_media(turma_atual):
-
-    conexao = conectar()
-    cursor = conexao.cursor()
-
-    listar_alunos(turma_atual)
-
-    id_aluno = input("Digite o ID do aluno: ").strip()
-
-    if not id_aluno.isdigit():
-        print("ID inválido")
-        cursor.close()
-        conexao.close()
-        return 0
-
-
-    cursor.execute(
-        "SELECT AVG(nota) FROM notas WHERE id_aluno = %s ",
-        (id_aluno,)
-    )
-
-
-    resultado = cursor.fetchone()
-
-    if resultado is None or resultado[0] is None:
-        cursor.close()
-        conexao.close()
-        return 0
-
-    media = resultado[0]
-
-    cursor.close()
-    
-    conexao.close()
-
-    if media is None:
-        return 0
-
-    return round(media, 2)
-
-# verificar situação do aluno
-def verificar_status(turma_atual):
-
-    media = calcular_media(turma_atual)
-
-    if media >= 7:
-        return "Aprovado"
-
-    elif media >= 5:
-        return "Recuperacao"
-
-    else:
-        return "Reprovado"
 
 
 # mostrar boletim completo
@@ -499,6 +446,8 @@ def boletim_geral(turma_atual):
 
     else:
         print("\n======== BOLETIM GERAL ========\n")
+        soma_medias = 0
+        quantidade_alunos = 0
         
         for aluno in alunos:
 
@@ -511,6 +460,9 @@ def boletim_geral(turma_atual):
 
             if media is None:
                     media = 0
+
+            soma_medias += media
+            quantidade_alunos += 1
 
             print(f"Aluno: {aluno[1]}")
             print(f"Média: {round(media, 2)}")
@@ -525,6 +477,13 @@ def boletim_geral(turma_atual):
                 print("Situacao: Reprovado")
 
             print("=========================\n")
+
+            
+        media_turma = soma_medias / quantidade_alunos
+
+        print("\n======== MÉDIA GERAL DA TURMA ========")
+        print(f"Média da turma: {round(media_turma, 2)}")
+        print("======================================\n")
 
     cursor.close()
     conexao.close()
@@ -611,10 +570,10 @@ def menu_professor(turma_atual):
         print("\n===== MENU =====")
         print("1 - Listar alunos")
         print("2 - Adicionar nota")
-        print("3 - Remover nota")
-        print("4 - Calcular média")
-        print("5 - Verificar status")
-        print("6 - Mostrar boletim")
+        print("3 - Editar nota")
+        print("4 - Remover nota")
+        print("5 - Listar notas")
+        print("6 - Mostrar boletim Geral")
         print("7 - Trocar de turma")
         print("8 - Voltar ao login\n")
 
@@ -627,13 +586,12 @@ def menu_professor(turma_atual):
             adicionar_nota(turma_atual)
 
         elif opcao == "3":
+            editar_nota(turma_atual)
+        elif opcao == "4":
             remover_nota(turma_atual)
 
-        elif opcao == "4":
-            print("Media:", calcular_media(turma_atual))
-
         elif opcao == "5":
-            print("Status:", verificar_status(turma_atual))
+            print()
 
         elif opcao == "6":
             boletim_geral(turma_atual)
