@@ -718,12 +718,13 @@ def menus():
             tipo = login()
 
             if tipo == "admin":
-                turma_atual = selecionar_turma()
+                while True:
+                    turma_atual = selecionar_turma()
 
-                if turma_atual:
-                    menu_adm(turma_atual)
-                else:
-                    continue
+                    if turma_atual:
+                        menu_adm(turma_atual)
+                    else:
+                        continue
 
             elif tipo == "professor":
 
