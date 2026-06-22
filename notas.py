@@ -176,15 +176,20 @@ def remover_nota(turma_atual):
         print("Nota não encontrada\n")
 
     else:
+        confirmar_nota = input("Deseja realmente excluir esta nota? (s/n): ").strip().lower()
 
-        cursor.execute(
-            "DELETE FROM notas WHERE id_nota = %s",
-        (id_nota,)
-    )
+        if confirmar_nota == "s":
 
-        conexao.commit()
-        print("Nota removida com sucesso\n")
 
+            cursor.execute(
+                "DELETE FROM notas WHERE id_nota = %s",
+            (id_nota,))
+        
+
+            conexao.commit()
+            print("Nota removida com sucesso\n")
+        else:
+            print("Remoção de nota cancelada\n")
     
     cursor.close()
     conexao.close()
