@@ -484,74 +484,47 @@ def verificar_status(turma_atual):
 
 
 # mostrar boletim completo
-def mostrar_boletim(turma_atual):
+def boletim_geral(turma_atual):
 
     conexao = conectar()
     cursor = conexao.cursor()
 
-    listar_alunos(turma_atual)
+    cursor.execute("""SELECT id_aluno, nomeFROM alunosWHERE turma = %sORDER BY nome""",
+        (turma_atual,))
 
-    id_aluno = input("Digite o ID do aluno: ").strip()
+    alunos = cursor.fetchall()
 
-    if not id_aluno.isdigit():
-        print("ID inválido\n")
-        cursor.close()
-        conexao.close()
-        return
-
-    cursor.execute(
-        "SELECT * FROM alunos WHERE id_aluno = %s AND turma = %s",
-        (id_aluno, turma_atual)
-    )
-
-    aluno = cursor.fetchone()
-    
-
-    if not aluno:
-        print("Aluno não encontrado")
-        cursor.close()
-        conexao.close()
-        return
-
-
-    cursor.execute(
-        "SELECT nota FROM notas WHERE id_aluno = %s",
-        (id_aluno,)
-    )
-
-    notas = cursor.fetchall()
-
-    print("\n======== BOLETIM ========")
-
-    if len(notas) == 0:
-
-        print("Nenhuma nota cadastrada")
+    if len(alunos) == 0:
+        print("Nenhum aluno cadastrado\n")
 
     else:
-
-        lista_notas = [nota[0] for nota in notas]
-
-        print("Notas do aluno:", lista_notas)
+        print("\n======== BOLETIM GERAL ========\n")
+    
+    for alunos in alunos:
 
         cursor.execute(
             "SELECT AVG(nota) FROM notas WHERE id_aluno = %s",
-            (id_aluno,)
+            (aluno[0],)
         )
 
         media = cursor.fetchone()[0]
 
-        print("Media final:", round(media, 2))
+        if media is None:
+                media = 0
+
+        print(f"Aluno: {aluno[1]}")
+        print(f"Média: {round(media, 2)}")
 
         if media >= 7:
-            print("Situacao: Aprovado")
+                print("Situacao: Aprovado")
 
         elif media >= 5:
-            print("Situacao: Recuperacao")
+                print("Situacao: Recuperacao")
 
         else:
             print("Situacao: Reprovado")
 
-    print("=========================\n")
+        print("=========================\n")
 
     cursor.close()
     conexao.close()
@@ -663,7 +636,7 @@ def menu_professor(turma_atual):
             print("Status:", verificar_status(turma_atual))
 
         elif opcao == "6":
-            mostrar_boletim(turma_atual)
+            boletim_geral(turma_atual)
 
         elif opcao == "7":
             print("Voltando à seleção de turmas")
