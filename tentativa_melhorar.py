@@ -532,11 +532,11 @@ def boletim_geral(turma_atual):
 def login():
 
     professor = {
-        "prof": "zion",
+        "prof": "josealdo",
     }
 
     admin = {
-        "admin": "josefa",
+        "adm": "josefa",
     }
 
     nome_usua = input("\nDigite o nome do usuario: ").strip()
