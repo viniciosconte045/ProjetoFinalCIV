@@ -112,10 +112,10 @@ def selecionar_turma():
     "3": "1° EM Jogos Digitais",
     "4": "2° EM Multimídia",
     "5": "2° EM Jogos Digitais",
-    "6": "3° EM Jogos Digitais"
+    "6": "3° EM Jogos Digitais\n"
     }
 
-    opcao = input("Escolha a turma: ").strip()
+    opcao = input("\nEscolha a turma: ").strip()
     if opcao in turmas:
         return turmas[opcao]
 
@@ -143,6 +143,11 @@ def menus():
 
                     if not turma_atual:
                         continue
+
+                    resultado = menu_adm(turma_atual)
+
+                    if resultado == "login":
+                        break
                     
 
             elif tipo == "professor":
@@ -159,7 +164,7 @@ def menus():
                     if resultado == "login":
                         break
                     
-                
+             
             
             
         elif escolha == "2":

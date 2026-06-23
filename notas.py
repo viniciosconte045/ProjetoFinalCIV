@@ -197,7 +197,7 @@ def remover_nota(turma_atual):
 def listar_notas(turma_atual):
 
     conexao = conectar()
-    cursor = conexao.cursor()
+    cursor = conexao.cursor() 
 
     cursor.execute(
         "SELECT id_aluno, nome FROM alunos WHERE turma = %s ORDER BY nome",
