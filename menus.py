@@ -173,4 +173,4 @@ def menus():
 
         else:
             print("Opção inválida")
-menus()
+

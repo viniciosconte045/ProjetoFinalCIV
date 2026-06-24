@@ -1,21 +1,12 @@
 import mysql.connector
 
-def conectar():
-    conexao = mysql.connector.connect(
-        host="127.0.0.1",
-        user="root",
-        password="Senac2026",
-        database="escola_db"
-    )
-  
 
 def criar_banco():
 
     conexao = mysql.connector.connect(
         host="127.0.0.1",
         user="root",
-        password="Senac2026",
-        database="escola_db"
+        password="Senac2026"
     )
     cursor = conexao.cursor()
 
@@ -80,4 +71,12 @@ def criar_banco():
     cursor.close()
     conexao.close()
 
-    print("Banco de dados criado/verificado com sucesso!")
+def conectar():
+    return mysql.connector.connect(
+        host="127.0.0.1",
+        user="root",
+        password="Senac2026",
+        database="escola_db"
+    ) 
+    
+  
