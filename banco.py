@@ -7,7 +7,16 @@ def conectar():
         password="Senac2026",
         database="escola_db"
     )
+  
 
+def criar_banco():
+
+    conexao = mysql.connector.connect(
+        host="127.0.0.1",
+        user="root",
+        password="Senac2026",
+        database="escola_db"
+    )
     cursor = conexao.cursor()
 
     cursor.execute("CREATE DATABASE IF NOT EXISTS escola_db")
