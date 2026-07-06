@@ -58,12 +58,12 @@ def criar_banco():
 
     cursor.execute("""
     INSERT IGNORE INTO usuarios (usuario, senha, tipo)
-    VALUES ('admin1', 'josefa', 'admin')
+    VALUES ('adm', 'josefa', 'admin')
     """)
 
     cursor.execute("""
     INSERT IGNORE INTO usuarios (usuario, senha, tipo)
-    VALUES ('professor', 'zion', 'professor')
+    VALUES ('prof', 'josealdo', 'professor')
     """)
 
     conexao.commit()
