@@ -1,7 +1,6 @@
 from banco import conectar
 from alunos import listar_alunos
 
-
 def adicionar_nota(turma_atual):
 
     conexao = conectar()
@@ -50,7 +49,6 @@ def adicionar_nota(turma_atual):
 
     cursor.close()
     conexao.close()
-
 
 def editar_nota(turma_atual):
 

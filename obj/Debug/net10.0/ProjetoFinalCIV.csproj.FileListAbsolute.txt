@@ -1,0 +1,5 @@
+C:\Users\cecilia62047266\Documents\GitHub\ProjetoFinalCIV\obj\Debug\net10.0\ProjetoFinalCIV.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cecilia62047266\Documents\GitHub\ProjetoFinalCIV\obj\Debug\net10.0\ProjetoFinalCIV.AssemblyInfoInputs.cache
+C:\Users\cecilia62047266\Documents\GitHub\ProjetoFinalCIV\obj\Debug\net10.0\ProjetoFinalCIV.AssemblyInfo.cs
+C:\Users\cecilia62047266\Documents\GitHub\ProjetoFinalCIV\obj\Debug\net10.0\ProjetoFinalCIV.csproj.CoreCompileInputs.cache
+C:\Users\cecilia62047266\Documents\GitHub\ProjetoFinalCIV\obj\Debug\net10.0\ProjetoFinalCIV.sourcelink.json
